@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Calculator | EdgeGrid Traders Capital</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo">
+                <i class='bx bx-trending-up' style="color: var(--primary-color);"></i>
+                EdgeGrid <span>Capital</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="tools.html" class="active">Tools</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+                        <div class="nav-right-actions" style="display: flex; align-items: center; gap: 15px;">
+                <div id="themeToggle" class="theme-toggle">
+                    <i class='bx bx-moon'></i>
+                </div>
+                <div class="cta-contact">
+                    <a href="tel:+260973493949" class="btn btn-outline"
+                        style="display: flex; align-items: center; gap: 8px; padding: 8px 16px;">
+                        <i class='bx bxs-phone'></i> <span class="hide-mobile">+260 973 493 949</span>
+                    </a>
+                </div>
+                <a href="VIPmembers.html" class="vip-top-btn" style="display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; background: var(--gold-gradient); color: var(--secondary-color); border-radius: 50%; font-size: 20px; box-shadow: 0 4px 10px rgba(212,175,55,0.4); transition: transform 0.3s ease;">
+                    <i class='bx bxs-crown'></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Position Size Calculator</h1>
+            <p style="margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">Manage your risk
+                effectively. Use our free tool to calculate your exact lot size based on your account equity, risk
+                limit, and stop loss distance.</p>
+        </div>
+    </div>
+
+    <section style="padding: 80px 0; background: var(--bg-light);">
+        <div class="container">
+            <div class="calculator" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="font-size: 24px; color: var(--secondary-color); margin-bottom: 25px;"><i
+                            class='bx bx-slider-alt' style="color: var(--primary-color);"></i> Calculation Parameters
+                    </h3>
+
+                    <div class="form-group">
+                        <label for="currencyPair">Currency Pair</label>
+                        <select id="currencyPair">
+                            <option value="10">EUR/USD (Pip Value: $10/Standard Lot)</option>
+                            <option value="10">GBP/USD (Pip Value: $10/Standard Lot)</option>
+                            <option value="10">AUD/USD (Pip Value: $10/Standard Lot)</option>
+                            <option value="10">NZD/USD (Pip Value: $10/Standard Lot)</option>
+                            <option value="8.5">USD/JPY (Pip Value ~ $8.5/Standard Lot)</option>
+                            <option value="7.5">USD/CAD (Pip Value ~ $7.5/Standard Lot)</option>
+                            <option value="11">USD/CHF (Pip Value ~ $11/Standard Lot)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accountBalance">Account Balance ($)</label>
+                        <input type="number" id="accountBalance" placeholder="e.g. 10000" min="0" step="any">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="riskPercentage">Risk Percentage (%)</label>
+                        <input type="number" id="riskPercentage" placeholder="e.g. 1" min="0" max="100" step="any"
+                            value="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stopLoss">Stop Loss (Pips)</label>
+                        <input type="number" id="stopLoss" placeholder="e.g. 50" min="0" step="any">
+                    </div>
+
+                    <button class="btn btn-primary" id="calculateBtn"
+                        style="width: 100%; margin-top: 10px; font-size: 16px;">Calculate Position Size</button>
+                    <p style="color: red; font-size: 13px; margin-top: 10px; display: none;" id="errorMsg">Please fill
+                        out all fields properly.</p>
+                </div>
+
+                <div
+                    style="flex: 1; min-width: 250px; background: var(--bg-main); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                    <h3 style="font-size: 20px; color: var(--secondary-color); margin-bottom: 25px;"><i
+                            class='bx bx-check-shield' style="color: var(--primary-color);"></i> Results</h3>
+
+                    <div class="calc-result"
+                        style="margin-top: 0; background: transparent; border-left: none; border-bottom: 1px solid var(--border-color); padding: 0 0 15px 0; margin-bottom: 20px;">
+                        <h4>Money at Risk</h4>
+                        <div id="moneyRisk" style="color: var(--primary-color);">$0.00</div>
+                    </div>
+
+                    <div class="calc-result"
+                        style="margin-top: 0; background: transparent; border-left: none; border-bottom: 1px solid var(--border-color); padding: 0 0 15px 0; margin-bottom: 20px;">
+                        <h4>Standard Lots (100,000 units)</h4>
+                        <div id="standardLots">0.00</div>
+                    </div>
+
+                    <div class="calc-result"
+                        style="margin-top: 0; background: transparent; border-left: none; border-bottom: 1px solid var(--border-color); padding: 0 0 15px 0; margin-bottom: 20px;">
+                        <h4>Mini Lots (10,000 units)</h4>
+                        <div id="miniLots">0.00</div>
+                    </div>
+
+                    <div class="calc-result"
+                        style="margin-top: 0; background: transparent; border-left: none; padding: 0;">
+                        <h4>Micro Lots (1,000 units)</h4>
+                        <div id="microLots">0.00</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>EdgeGrid Traders Capital</h4>
+                    <p>Based in Livingstone, Zambia, we are dedicated to creating profitable traders through transparent
+                        education and our 'Learn Now Pay Later' initiative.</p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="#"
+                            style="background: var(--primary-color); display: flex; width: 40px; height: 40px; border-radius: 50%; color: var(--secondary-color); align-items: center; justify-content: center; font-size: 20px;"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a href="#"
+                            style="background: var(--primary-color); display: flex; width: 40px; height: 40px; border-radius: 50%; color: var(--secondary-color); align-items: center; justify-content: center; font-size: 20px;"><i
+                                class='bx bxl-instagram'></i></a>
+                        <a href="#"
+                            style="background: var(--primary-color); display: flex; width: 40px; height: 40px; border-radius: 50%; color: var(--secondary-color); align-items: center; justify-content: center; font-size: 20px;"><i
+                                class='bx bxl-twitter'></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="courses.html">Trading Courses</a></li>
+                        <li><a href="tools.html">Position Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog & Updates</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="year"></span> EdgeGrid Traders Capital. All rights reserved. | <i
+                    class='bx bxs-map'></i> Livingstone, Zambia | <i class='bx bxs-phone'></i> +260 973 493 949
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/calculator.js"></script>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <a href="index.html" class="active">
+            <i class='bx bxs-home'></i>
+            Home
+        </a>
+        <a href="courses.html">
+            <i class='bx bx-book-open'></i>
+            Courses
+        </a>
+        <a href="tools.html">
+            <i class='bx bx-calculator'></i>
+            Tools
+        </a>
+        <a href="about.html">
+            <i class='bx bx-user'></i>
+            Profile
+        </a>
+    </div>
+
+    <!-- WhatsApp Floating Button & Popup -->
+    <div class="whatsapp-container">
+        <div id="waPopup" class="wa-popup">
+            <div class="wa-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class='bx bxl-whatsapp' style="font-size: 24px;"></i>
+                    <h4 style="margin: 0; font-size: 15px;">EdgeGrid Support</h4>
+                </div>
+                <i class='bx bx-x' style="font-size: 20px; cursor: pointer;" onclick="toggleWAPopup()"></i>
+            </div>
+            <div class="wa-body">
+                <div class="wa-message-received">
+                    Welcome to EdgeGrid Team Support, how may we help you today?
+                </div>
+            </div>
+            <div class="wa-footer">
+                <input type="text" id="waMessageInput" placeholder="Type a message..." onkeypress="if(event.key === 'Enter') sendWAMessage()">
+                <button onclick="sendWAMessage()"><i class='bx bxs-send'></i></button>
+            </div>
+        </div>
+        <div class="whatsapp-float" onclick="toggleWAPopup()">
+            <div class="wa-waves"></div>
+            <i class='bx bxl-whatsapp'></i>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function toggleWAPopup() {
+            const popup = document.getElementById('waPopup');
+            popup.classList.toggle('active');
+            if (popup.classList.contains('active')) {
+                document.getElementById('waMessageInput').focus();
+            }
+        }
+        function sendWAMessage() {
+            const input = document.getElementById('waMessageInput');
+            const message = input.value.trim();
+            if (message) {
+                navigator.clipboard.writeText(message).catch(err => console.log('Clipboard err:', err)).finally(() => {
+                    const encodedMsg = encodeURIComponent(message);
+                    window.open(`https://wa.me/260973493949?text=${encodedMsg}`, '_blank');
+                    input.value = '';
+                    toggleWAPopup();
+                });
+            }
+        }
+    </script>
+</body>
+
+
+</html>

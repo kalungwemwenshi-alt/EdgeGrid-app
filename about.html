@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | EdgeGrid Traders Capital</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo">
+                <i class='bx bx-trending-up' style="color: var(--primary-color);"></i>
+                EdgeGrid <span>Capital</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="tools.html">Tools</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>About EdgeGrid Traders Capital</h1>
+            <p style="margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">Your partner in financial freedom, based right here in Livingstone, Zambia.</p>
+        </div>
+    </div>
+
+    <section style="padding: 80px 0; background: var(--bg-main);">
+        <div class="container" style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center;">
+            <div style="flex: 1; min-width: 300px;">
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop" alt="Trading Desk" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow-lg);">
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 32px; color: var(--secondary-color); margin-bottom: 20px;">Redefining Trading Education in Zambia</h2>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Our journey began in 2019 as <strong>Topnotch Traders Capital</strong>. We noticed a significant gap in the market for quality, transparent, and results-driven forex trading education in Zambia.</p>
+                <p style="color: var(--text-light); margin-bottom: 15px;">In 2023, after several strategic partners came onboard to expand our reach and resources, we officially rebranded to <strong>EdgeGrid Traders Capital</strong>. Today, we continue to bridge that gap with more power and precision than ever before.</p>
+                <p style="color: var(--text-light); margin-bottom: 25px;">Our core philosophy remains simple: we earn when you earn. With our <strong>'Learn Now, Pay Later'</strong> model, we absorb the upfront risk of your education so that you can focus entirely on mastering the markets. Only when you are consistently profitable do you pay us back.</p>
+                
+                <h3 style="font-size: 20px; color: var(--secondary-color); margin-bottom: 15px;">Why Trust Us?</h3>
+                <ul style="list-style: none; color: var(--text-main); font-weight: 500;">
+                    <li style="margin-bottom: 10px;"><i class='bx bx-badge-check' style="color: var(--primary-color); margin-right: 10px; font-size: 20px;"></i> Proven track record of profitable students</li>
+                    <li style="margin-bottom: 10px;"><i class='bx bx-badge-check' style="color: var(--primary-color); margin-right: 10px; font-size: 20px;"></i> Zero hidden fees in our Learn Now Pay Later model</li>
+                    <li><i class='bx bx-badge-check' style="color: var(--primary-color); margin-right: 10px; font-size: 20px;"></i> Direct access to institutional-level mentors</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding: 0;">
+                &copy; <span id="year"></span> EdgeGrid Traders Capital. | +260 973 493 949 | Livingstone, Zambia
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <a href="index.html" class="active">
+            <i class='bx bxs-home'></i>
+            Home
+        </a>
+        <a href="courses.html">
+            <i class='bx bx-book-open'></i>
+            Courses
+        </a>
+        <a href="tools.html">
+            <i class='bx bx-calculator'></i>
+            Tools
+        </a>
+        <a href="about.html">
+            <i class='bx bx-user'></i>
+            Profile
+        </a>
+    </div>
+
+    <!-- WhatsApp Floating Button & Popup -->
+    <div class="whatsapp-container">
+        <div id="waPopup" class="wa-popup">
+            <div class="wa-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class='bx bxl-whatsapp' style="font-size: 24px;"></i>
+                    <h4 style="margin: 0; font-size: 15px;">EdgeGrid Support</h4>
+                </div>
+                <i class='bx bx-x' style="font-size: 20px; cursor: pointer;" onclick="toggleWAPopup()"></i>
+            </div>
+            <div class="wa-body">
+                <div class="wa-message-received">
+                    Welcome to EdgeGrid Team Support, how may we help you today?
+                </div>
+            </div>
+            <div class="wa-footer">
+                <input type="text" id="waMessageInput" placeholder="Type a message..." onkeypress="if(event.key === 'Enter') sendWAMessage()">
+                <button onclick="sendWAMessage()"><i class='bx bxs-send'></i></button>
+            </div>
+        </div>
+        <div class="whatsapp-float" onclick="toggleWAPopup()">
+            <div class="wa-waves"></div>
+            <i class='bx bxl-whatsapp'></i>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function toggleWAPopup() {
+            const popup = document.getElementById('waPopup');
+            popup.classList.toggle('active');
+            if (popup.classList.contains('active')) {
+                document.getElementById('waMessageInput').focus();
+            }
+        }
+        function sendWAMessage() {
+            const input = document.getElementById('waMessageInput');
+            const message = input.value.trim();
+            if (message) {
+                navigator.clipboard.writeText(message).catch(err => console.log('Clipboard err:', err)).finally(() => {
+                    const encodedMsg = encodeURIComponent(message);
+                    window.open(`https://wa.me/260973493949?text=${encodedMsg}`, '_blank');
+                    input.value = '';
+                    toggleWAPopup();
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
