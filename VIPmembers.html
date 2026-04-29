@@ -16,8 +16,8 @@
             --vip-sidebar-bg: #F0F0F0;
             --vip-header-bg: #FFFFFF;
             --vip-border: #EAEAEA;
-            --vip-text: #222222;
-            --vip-text-muted: #555;
+            --vip-text: #111111;
+            --vip-text-muted: #333;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -28,7 +28,7 @@
             --vip-header-bg: #000;
             --vip-border: #222222;
             --vip-text: #FFFFFF;
-            --vip-text-muted: #888;
+            --vip-text-muted: #aaa;
         }
 
         * {
@@ -279,6 +279,76 @@
             margin-bottom: 20px;
         }
 
+        /* ============================================
+           LIGHT MODE: Global text legibility overrides
+           Fixes all faint #888 / #777 / #555 inline
+           styles that are unreadable on white/grey bg
+        ============================================ */
+        body:not([data-theme="dark"]) .content-section p,
+        body:not([data-theme="dark"]) .content-section li,
+        body:not([data-theme="dark"]) .content-section ol li,
+        body:not([data-theme="dark"]) .content-section ul li {
+            color: #2a2a2a;
+        }
+
+        body:not([data-theme="dark"]) .module-hero p {
+            color: #3a3a3a;
+        }
+
+        body:not([data-theme="dark"]) .key-takeaways p,
+        body:not([data-theme="dark"]) .key-takeaways ul li {
+            color: #2a2a2a;
+        }
+
+        body:not([data-theme="dark"]) .example-box p,
+        body:not([data-theme="dark"]) .example-box ul li,
+        body:not([data-theme="dark"]) .example-box ol li {
+            color: #2a2a2a;
+        }
+
+        body:not([data-theme="dark"]) .illustration-container p {
+            color: #444;
+        }
+
+        body:not([data-theme="dark"]) .yt-player-section h3 {
+            color: var(--vip-gold);
+        }
+
+        /* Force dark-background boxes to keep white text regardless of theme */
+        .example-box[style*="background: #000"] p,
+        .example-box[style*="background: #000"] li,
+        .example-box[style*="background: #111"] p,
+        .example-box[style*="background: #111"] li,
+        .example-box[style*="background:#000"] p,
+        .example-box[style*="background:#111"] p {
+            color: #ddd !important;
+        }
+
+        /* Inline svg labels in illustrations */
+        body:not([data-theme="dark"]) .illustration-container svg text[fill="#555"],
+        body:not([data-theme="dark"]) .illustration-container svg text[fill="#888"] {
+            fill: #444;
+        }
+
+        /* Sidebar module name */
+        body:not([data-theme="dark"]) .module-item .module-name {
+            color: #333;
+        }
+
+        body:not([data-theme="dark"]) .module-item {
+            color: #333;
+        }
+
+        body:not([data-theme="dark"]) .module-item:hover,
+        body:not([data-theme="dark"]) .module-item.active {
+            color: #111;
+        }
+
+        /* Form labels in toolbox */
+        body:not([data-theme="dark"]) .form-group label {
+            color: #444;
+        }
+
         .illustration-container {
             background: var(--bg-gray);
             border-radius: 8px;
@@ -422,18 +492,98 @@
         }
 
         /* Tool Inputs */
-        .tool-card { background: #111; border: 1px solid #333; border-radius: 8px; padding: 25px; margin-bottom: 20px; }
-        .tool-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 15px; }
-        .tool-header h4 { margin: 0; color: var(--vip-gold); font-size: 16px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-size: 11px; color: #888; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid #333; color: #fff; border-radius: 4px; font-family: 'Inter', sans-serif; box-sizing: border-box; }
-        .form-group input:focus, .form-group select:focus { border-color: var(--vip-gold); outline: none; }
-        .calc-btn { width: 100%; padding: 12px; background: var(--vip-gold); color: #000; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 10px; }
-        .calc-btn:hover { background: #fff; }
-        .calc-result { background: #000; border: 1px dashed var(--vip-gold); padding: 20px; border-radius: 4px; margin-top: 20px; text-align: center; }
-        .calc-result .value { font-size: 28px; font-weight: 700; color: #00ff88; font-family: 'Courier New', monospace; margin: 10px 0; }
-        .calc-result .label { font-size: 12px; color: #888; }
+        .tool-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+
+        .tool-header h4 {
+            margin: 0;
+            color: var(--vip-gold);
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--vip-gold);
+            outline: none;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--vip-gold);
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .calc-btn:hover {
+            background: #fff;
+        }
+
+        .calc-result {
+            background: #000;
+            border: 1px dashed var(--vip-gold);
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .calc-result .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+
+        .calc-result .label {
+            font-size: 12px;
+            color: #888;
+        }
 
         .menu-toggle {
             display: none;
@@ -506,15 +656,15 @@
         }
 
         @media (max-width: 480px) {
-            #vipLockScreen > div {
+            #vipLockScreen>div {
                 flex-direction: column;
             }
 
-            #vipLockScreen > div input {
+            #vipLockScreen>div input {
                 width: 100%;
             }
 
-            #vipLockScreen > div button {
+            #vipLockScreen>div button {
                 width: 100%;
             }
         }
@@ -524,15 +674,21 @@
 <body>
 
     <!-- VIP Access Lock Screen -->
-    <div id="vipLockScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: opacity 0.5s ease; padding: 20px;">
+    <div id="vipLockScreen"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: opacity 0.5s ease; padding: 20px;">
         <i class='bx bxs-lock-alt' style="font-size: 60px; color: var(--vip-gold); margin-bottom: 20px;"></i>
         <h2 style="color: #fff; margin-bottom: 10px;">Restricted Access</h2>
-        <p style="color: #888; font-size: 14px; margin-bottom: 30px; max-width: 320px;">Please enter your VIP Inner Circle passkey.</p>
+        <p style="color: #888; font-size: 14px; margin-bottom: 30px; max-width: 320px;">Please enter your VIP Inner
+            Circle passkey.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 10px; max-width: 400px; width: 100%; justify-content: center;">
-            <input type="password" id="vipPasskey" placeholder="Enter your private pin" style="flex: 1; min-width: 0; padding: 14px 20px; border-radius: 8px; border: 1px solid #333; background: #111; color: #fff; outline: none; font-family: 'Inter', sans-serif; font-size: 16px; text-align: center;" onkeypress="if(event.key==='Enter') checkVipPasskey()">
-            <button onclick="checkVipPasskey()" style="padding: 14px 24px; background: var(--vip-gold); color: #000; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; white-space: nowrap;">Unlock</button>
+            <input type="password" id="vipPasskey" placeholder="Enter your private pin"
+                style="flex: 1; min-width: 0; padding: 14px 20px; border-radius: 8px; border: 1px solid #333; background: #111; color: #fff; outline: none; font-family: 'Inter', sans-serif; font-size: 16px; text-align: center;"
+                onkeypress="if(event.key==='Enter') checkVipPasskey()">
+            <button onclick="checkVipPasskey()"
+                style="padding: 14px 24px; background: var(--vip-gold); color: #000; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; white-space: nowrap;">Unlock</button>
         </div>
-        <p id="vipPassError" style="color: #ff3333; font-size: 12px; margin-top: 15px; display: none;">Incorrect input, correct to avoid IP device block.</p>
+        <p id="vipPassError" style="color: #ff3333; font-size: 12px; margin-top: 15px; display: none;">Incorrect input,
+            correct to avoid IP device block.</p>
     </div>
 
     <!-- Mobile Toggle -->
@@ -600,9 +756,18 @@
                     <span class="module-name">Business Model</span>
                 </div>
             </div>
-            
+
+            <div class="module-item" onclick="showModule(8)">
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <div>
+                    <span class="module-number">Module 8</span>
+                    <span class="module-name">Backtesting & Strategy</span>
+                </div>
+            </div>
+
             <!-- VIP Toolbox -->
-            <div class="module-item" style="margin-top: 15px; border-top: 1px solid #333; padding-top: 15px;" onclick="showModule('tools')">
+            <div class="module-item" style="margin-top: 15px; border-top: 1px solid #333; padding-top: 15px;"
+                onclick="showModule('tools')">
                 <i class='bx bx-wrench' style="color: var(--vip-gold);"></i>
                 <div>
                     <span class="module-number" style="color: var(--vip-gold);">Pro Access</span>
@@ -706,7 +871,8 @@
                     <p>Price does not move because of supply and demand in the way textbooks describe. Price is
                         <em>delivered</em> by algorithms (referred to as the <strong style="color:var(--vip-gold)">IPDA
                             — Interbank Price Delivery Algorithm</strong>). This algorithm seeks liquidity and engineers
-                        moves to collect it.</p>
+                        moves to collect it.
+                    </p>
                     <div class="grid-2">
                         <div class="example-box">
                             <div class="example-header"><span style="color:#ff6b6b">❌ RETAIL BELIEF</span></div>
@@ -872,9 +1038,13 @@
 
                 <!-- MODULE 1 VIDEO -->
                 <div class="yt-player-section">
-                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 1 Lesson: Institutional Forex Architecture</h3>
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 1 Lesson: Institutional Forex
+                        Architecture</h3>
                     <div class="yt-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/sQBTswIavnw?rel=0&modestbranding=1" title="Institutional Forex Architecture" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/sQBTswIavnw?rel=0&modestbranding=1"
+                            title="Institutional Forex Architecture"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -905,100 +1075,124 @@
 
                     <div class="key-takeaways">
                         <h4>🔑 The Golden Rule of Institutional Structure</h4>
-                        <p style="font-size: 13px; color: #ccc;">"Structure is only valid if it results in a Break of Structure (BOS). If a high/low fails to break its opposite, it is a **Weak** point and becomes a target for liquidity."</p>
+                        <p style="font-size: 13px; color: #ccc;">"Structure is only valid if it results in a Break of
+                            Structure (BOS). If a high/low fails to break its opposite, it is a **Weak** point and
+                            becomes a target for liquidity."</p>
                     </div>
 
                     <div class="illustration-container">
-                        <div style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 250px;">
+                        <div
+                            style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 250px;">
                             <svg width="100%" height="100%" viewBox="0 0 500 250">
                                 <!-- Bearish Trend -->
-                                <path d="M 50 50 L 150 150 L 200 100 L 300 200 L 350 150 L 450 250" fill="none" stroke="var(--vip-gold)" stroke-width="3" />
-                                
+                                <path d="M 50 50 L 150 150 L 200 100 L 300 200 L 350 150 L 450 250" fill="none"
+                                    stroke="var(--vip-gold)" stroke-width="3" />
+
                                 <!-- Labels for Strong Highs -->
                                 <circle cx="50" cy="50" r="5" fill="#00ff88" />
                                 <text x="60" y="45" fill="#00ff88" font-size="10">Strong High (Protected)</text>
-                                
+
                                 <circle cx="200" cy="100" r="5" fill="#00ff88" />
                                 <text x="210" y="95" fill="#00ff88" font-size="10">Strong High (Created BOS)</text>
-                                
+
                                 <!-- Labels for Weak Lows -->
                                 <circle cx="150" cy="150" r="5" fill="#ff3333" />
                                 <text x="110" y="170" fill="#ff3333" font-size="10">Weak Low (Target)</text>
-                                
+
                                 <circle cx="300" cy="200" r="5" fill="#ff3333" />
-                                <text x="260" y="220" fill="#ff3333" font-size="10">Weak Low (Failed to Break High)</text>
-                                
+                                <text x="260" y="220" fill="#ff3333" font-size="10">Weak Low (Failed to Break
+                                    High)</text>
+
                                 <!-- BOS Indication -->
                                 <line x1="150" y1="150" x2="300" y2="150" stroke="#555" stroke-dasharray="4" />
                                 <text x="220" y="145" fill="#555" font-size="9">BOS</text>
                             </svg>
                         </div>
-                        <p style="font-size: 11px; color: #555; margin-top: 10px;">Institutional Structure: Strong points defend positions; Weak points are hunted for liquidity.</p>
+                        <p style="font-size: 11px; color: #555; margin-top: 10px;">Institutional Structure: Strong
+                            points defend positions; Weak points are hunted for liquidity.</p>
                     </div>
                 </div>
 
                 <div class="content-section">
                     <h3><i class='bx bx-git-repo-forked'></i> 2. External vs Internal Structure</h3>
-                    <p>Retail traders often get caught in the "Internal" noise. They see a small break on the M15 and think the trend has reversed, while the H4 "External" trend remains bullish.</p>
-                    
+                    <p>Retail traders often get caught in the "Internal" noise. They see a small break on the M15 and
+                        think the trend has reversed, while the H4 "External" trend remains bullish.</p>
+
                     <div class="grid-2">
                         <div class="example-box">
                             <h4 style="color: var(--vip-gold);">External Structure (HTF)</h4>
-                            <p style="font-size: 13px; color: #888;">The 'Skeleton' of the market. These define the long-term institutional objective.</p>
+                            <p style="font-size: 13px; color: #888;">The 'Skeleton' of the market. These define the
+                                long-term institutional objective.</p>
                         </div>
                         <div class="example-box">
                             <h4 style="color: #ccc;">Internal Structure (LTF)</h4>
-                            <p style="font-size: 13px; color: #888;">The 'Noise' inside the HTF leg. Used for refining entries, not for determining bias.</p>
+                            <p style="font-size: 13px; color: #888;">The 'Noise' inside the HTF leg. Used for refining
+                                entries, not for determining bias.</p>
                         </div>
                     </div>
 
                     <div class="illustration-container" style="margin-top: 20px;">
-                        <div style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 200px;">
+                        <div
+                            style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 200px;">
                             <svg width="100%" height="100%" viewBox="0 0 500 200">
                                 <!-- External Structure (Thick Gold) -->
-                                <path d="M 20 180 L 250 50 L 480 180" fill="none" stroke="var(--vip-gold)" stroke-width="4" opacity="0.3" />
-                                <text x="130" y="100" fill="var(--vip-gold)" font-size="12" font-weight="700">HTF BULLISH LEG</text>
-                                
+                                <path d="M 20 180 L 250 50 L 480 180" fill="none" stroke="var(--vip-gold)"
+                                    stroke-width="4" opacity="0.3" />
+                                <text x="130" y="100" fill="var(--vip-gold)" font-size="12" font-weight="700">HTF
+                                    BULLISH LEG</text>
+
                                 <!-- Internal Structure (Thin White) -->
-                                <path d="M 20 180 L 50 160 L 40 170 L 80 140 L 70 155 L 110 120 L 100 135 L 140 100 L 130 115 L 180 80 L 170 95 L 250 50" fill="none" stroke="#fff" stroke-width="1.5" />
-                                
+                                <path
+                                    d="M 20 180 L 50 160 L 40 170 L 80 140 L 70 155 L 110 120 L 100 135 L 140 100 L 130 115 L 180 80 L 170 95 L 250 50"
+                                    fill="none" stroke="#fff" stroke-width="1.5" />
+
                                 <!-- Trap Zone -->
                                 <circle cx="110" cy="120" r="10" fill="none" stroke="#ff3333" stroke-width="1" />
-                                <text x="125" y="135" fill="#ff3333" font-size="9">Retail thinks this is a reversal</text>
+                                <text x="125" y="135" fill="#ff3333" font-size="9">Retail thinks this is a
+                                    reversal</text>
                             </svg>
                         </div>
-                        <p style="font-size: 11px; color: #555; margin-top: 10px;">The Reversal Trap: Internal breaks are often just pullbacks to HTF discount zones.</p>
+                        <p style="font-size: 11px; color: #555; margin-top: 10px;">The Reversal Trap: Internal breaks
+                            are often just pullbacks to HTF discount zones.</p>
                     </div>
                 </div>
 
                 <div class="content-section">
                     <h3><i class='bx bx-git-branch'></i> 3. BOS vs CHoCH: The Reversal Anatomy</h3>
-                    <p>Understanding the difference between a **BOS** (Continuation) and a **CHoCH** (Change of Character) is what separates professional traders from retail gamblers.</p>
-                    
+                    <p>Understanding the difference between a **BOS** (Continuation) and a **CHoCH** (Change of
+                        Character) is what separates professional traders from retail gamblers.</p>
+
                     <div class="illustration-container">
-                        <div style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 250px;">
+                        <div
+                            style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 250px;">
                             <svg width="100%" height="100%" viewBox="0 0 500 250">
                                 <!-- Bearish to Bullish Reversal -->
-                                <path d="M 20 50 L 100 150 L 140 100 L 220 200 L 260 150 L 210 230 L 320 120 L 300 150 L 450 40" fill="none" stroke="#fff" stroke-width="2" />
-                                
+                                <path
+                                    d="M 20 50 L 100 150 L 140 100 L 220 200 L 260 150 L 210 230 L 320 120 L 300 150 L 450 40"
+                                    fill="none" stroke="#fff" stroke-width="2" />
+
                                 <!-- BOS (Bearish) -->
                                 <line x1="100" y1="150" x2="220" y2="150" stroke="#ff3333" stroke-dasharray="4" />
                                 <text x="140" y="145" fill="#ff3333" font-size="9">BOS (Continuation)</text>
-                                
+
                                 <!-- Liquidity Sweep -->
-                                <circle cx="210" cy="230" r="15" fill="none" stroke="var(--vip-gold)" stroke-width="1" stroke-dasharray="2" />
-                                <text x="150" y="245" fill="var(--vip-gold)" font-size="10" font-weight="700">LIQUIDITY SWEEP (The Trap)</text>
-                                
+                                <circle cx="210" cy="230" r="15" fill="none" stroke="var(--vip-gold)" stroke-width="1"
+                                    stroke-dasharray="2" />
+                                <text x="150" y="245" fill="var(--vip-gold)" font-size="10" font-weight="700">LIQUIDITY
+                                    SWEEP (The Trap)</text>
+
                                 <!-- CHoCH -->
                                 <line x1="260" y1="150" x2="320" y2="150" stroke="#00ff88" stroke-dasharray="4" />
-                                <text x="270" y="145" fill="#00ff88" font-size="10" font-weight="700">CHoCH (Market Shift)</text>
-                                
+                                <text x="270" y="145" fill="#00ff88" font-size="10" font-weight="700">CHoCH (Market
+                                    Shift)</text>
+
                                 <!-- New BOS (Bullish) -->
                                 <line x1="320" y1="120" x2="400" y2="120" stroke="#00ff88" stroke-dasharray="4" />
                                 <text x="350" y="115" fill="#00ff88" font-size="9">BOS (Trend Confirmed)</text>
                             </svg>
                         </div>
-                        <p style="font-size: 11px; color: #555; margin-top: 10px;">The CHoCH must follow a liquidity sweep to confirm institutional intent.</p>
+                        <p style="font-size: 11px; color: #555; margin-top: 10px;">The CHoCH must follow a liquidity
+                            sweep to confirm institutional intent.</p>
                     </div>
                 </div>
 
@@ -1006,105 +1200,130 @@
                     <h3><i class='bx bx-tag'></i> 4. Premium & Discount: Advanced Pricing</h3>
                     <p>Institutions are business operators. They don't buy at any price; they buy in **Discount** and
                         sell in **Premium**.</p>
-                    
+
                     <div class="example-box" style="margin-top: 20px; border: 1px solid var(--vip-gold);">
                         <p style="font-size: 14px; text-align: center;"><strong>The 50% Equilibrium Rule</strong></p>
-                        <p style="font-size: 13px; color: #888; text-align: center;">Draw a Fib from the swing low to the swing high. <br>
-                            - <span style="color: #ff3333; font-weight: 700;">Above 50% = Premium (Sell Zone)</span> <br>
+                        <p style="font-size: 13px; color: #888; text-align: center;">Draw a Fib from the swing low to
+                            the swing high. <br>
+                            - <span style="color: #ff3333; font-weight: 700;">Above 50% = Premium (Sell Zone)</span>
+                            <br>
                             - <span style="color: #00ff88; font-weight: 700;">Below 50% = Discount (Buy Zone)</span></p>
                     </div>
 
                     <div class="illustration-container">
-                        <div style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 200px;">
+                        <div
+                            style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 200px;">
                             <svg width="100%" height="100%" viewBox="0 0 500 200">
                                 <!-- Price Leg -->
-                                <path d="M 50 180 L 450 20" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="2" />
-                                
+                                <path d="M 50 180 L 450 20" fill="none" stroke="#555" stroke-width="1"
+                                    stroke-dasharray="2" />
+
                                 <!-- Fib Tool -->
-                                <rect x="300" y="20" width="150" height="80" fill="rgba(255, 51, 51, 0.1)" stroke="#ff3333" stroke-width="1" />
+                                <rect x="300" y="20" width="150" height="80" fill="rgba(255, 51, 51, 0.1)"
+                                    stroke="#ff3333" stroke-width="1" />
                                 <text x="310" y="40" fill="#ff3333" font-size="10">PREMIUM (SELL)</text>
-                                
+
                                 <line x1="300" y1="100" x2="450" y2="100" stroke="#fff" stroke-width="1" />
                                 <text x="310" y="95" fill="#fff" font-size="10">EQUILIBRIUM (50%)</text>
-                                
-                                <rect x="300" y="100" width="150" height="80" fill="rgba(0, 255, 136, 0.1)" stroke="#00ff88" stroke-width="1" />
+
+                                <rect x="300" y="100" width="150" height="80" fill="rgba(0, 255, 136, 0.1)"
+                                    stroke="#00ff88" stroke-width="1" />
                                 <text x="310" y="170" fill="#00ff88" font-size="10">DISCOUNT (BUY)</text>
-                                
+
                                 <text x="60" y="195" fill="#888" font-size="10">SWING LOW</text>
                                 <text x="400" y="15" fill="#888" font-size="10">SWING HIGH</text>
                             </svg>
                         </div>
-                        <p style="font-size: 11px; color: #555; margin-top: 10px;">The Institutional Pricing Secret: Buying 'Cheap' means waiting for the Discount zone.</p>
+                        <p style="font-size: 11px; color: #555; margin-top: 10px;">The Institutional Pricing Secret:
+                            Buying 'Cheap' means waiting for the Discount zone.</p>
                     </div>
                 </div>
 
                 <div class="content-section">
                     <h3><i class='bx bx-shuffle'></i> 5. SMS (Shift in Market Structure) & Inducement</h3>
-                    <p>Before a real reversal happens, the market often gives a "warning sign" called an SMS. This is followed by an **Inducement**, which is a fake move designed to lure retail traders into the wrong side of the market.</p>
-                    
+                    <p>Before a real reversal happens, the market often gives a "warning sign" called an SMS. This is
+                        followed by an **Inducement**, which is a fake move designed to lure retail traders into the
+                        wrong side of the market.</p>
+
                     <div class="grid-2">
                         <div class="example-box">
                             <h4 style="color: #ff9900;">SMS (Shift in Market Structure)</h4>
-                            <p style="font-size: 13px; color: #888;">When price fails to make a Higher High or Lower Low. It signals that the current institutional trend is exhausting.</p>
+                            <p style="font-size: 13px; color: #888;">When price fails to make a Higher High or Lower
+                                Low. It signals that the current institutional trend is exhausting.</p>
                         </div>
                         <div class="example-box">
                             <h4 style="color: #ff3333;">IDM (Inducement)</h4>
-                            <p style="font-size: 13px; color: #888;">A minor structure break that looks like a CHoCH but is actually just a trap to build liquidity for the real move.</p>
+                            <p style="font-size: 13px; color: #888;">A minor structure break that looks like a CHoCH but
+                                is actually just a trap to build liquidity for the real move.</p>
                         </div>
                     </div>
 
                     <div class="illustration-container">
-                        <div style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 250px;">
+                        <div
+                            style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 250px;">
                             <svg width="100%" height="100%" viewBox="0 0 500 250">
                                 <!-- SMS Pattern -->
-                                <path d="M 50 200 L 150 100 L 200 150 L 300 50 L 350 100 L 400 80 L 420 150 L 480 230" fill="none" stroke="#fff" stroke-width="2" />
-                                
+                                <path d="M 50 200 L 150 100 L 200 150 L 300 50 L 350 100 L 400 80 L 420 150 L 480 230"
+                                    fill="none" stroke="#fff" stroke-width="2" />
+
                                 <!-- SMS Label -->
                                 <circle cx="400" cy="80" r="5" fill="#ff9900" />
                                 <text x="410" y="75" fill="#ff9900" font-size="10">SMS (Failure to break High)</text>
-                                
+
                                 <!-- Inducement -->
                                 <circle cx="350" cy="100" r="5" fill="#ff3333" />
                                 <text x="320" y="115" fill="#ff3333" font-size="9">Inducement (Fake CHoCH)</text>
-                                
+
                                 <!-- Real CHoCH -->
                                 <line x1="350" y1="100" x2="420" y2="100" stroke="#00ff88" stroke-dasharray="4" />
                                 <text x="360" y="95" fill="#00ff88" font-size="10">Real CHoCH after SMS</text>
                             </svg>
                         </div>
-                        <p style="font-size: 11px; color: #555; margin-top: 10px;">The SMS + Inducement combo: The ultimate warning sign of a trend reversal.</p>
+                        <p style="font-size: 11px; color: #555; margin-top: 10px;">The SMS + Inducement combo: The
+                            ultimate warning sign of a trend reversal.</p>
                     </div>
                 </div>
 
                 <div class="content-section">
                     <h3><i class='bx bx-layer'></i> 6. Mitigated Order Flow</h3>
-                    <p>Market structure is not just about lines; it's about **orders being filled**. When an institution defends a Strong High/Low, they leave an "Order Flow" footprint.</p>
-                    
+                    <p>Market structure is not just about lines; it's about **orders being filled**. When an institution
+                        defends a Strong High/Low, they leave an "Order Flow" footprint.</p>
+
                     <div class="illustration-container">
-                        <div style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 200px;">
+                        <div
+                            style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; height: 200px;">
                             <svg width="100%" height="100%" viewBox="0 0 500 200">
                                 <!-- Order Blocks (Boxes) -->
-                                <rect x="50" y="20" width="40" height="20" fill="rgba(212, 175, 55, 0.2)" stroke="var(--vip-gold)" />
-                                <rect x="150" y="60" width="40" height="20" fill="rgba(212, 175, 55, 0.2)" stroke="var(--vip-gold)" />
-                                <rect x="250" y="100" width="40" height="20" fill="rgba(212, 175, 55, 0.2)" stroke="var(--vip-gold)" />
-                                
+                                <rect x="50" y="20" width="40" height="20" fill="rgba(212, 175, 55, 0.2)"
+                                    stroke="var(--vip-gold)" />
+                                <rect x="150" y="60" width="40" height="20" fill="rgba(212, 175, 55, 0.2)"
+                                    stroke="var(--vip-gold)" />
+                                <rect x="250" y="100" width="40" height="20" fill="rgba(212, 175, 55, 0.2)"
+                                    stroke="var(--vip-gold)" />
+
                                 <!-- Price path mitigating them -->
-                                <path d="M 20 10 L 70 30 L 100 100 L 170 70 L 200 150 L 270 110 L 300 180" fill="none" stroke="#fff" stroke-width="2" />
-                                
+                                <path d="M 20 10 L 70 30 L 100 100 L 170 70 L 200 150 L 270 110 L 300 180" fill="none"
+                                    stroke="#fff" stroke-width="2" />
+
                                 <text x="80" y="45" fill="var(--vip-gold)" font-size="9">Mitigation</text>
                                 <text x="180" y="85" fill="var(--vip-gold)" font-size="9">Mitigation</text>
                                 <text x="280" y="125" fill="var(--vip-gold)" font-size="9">Mitigation</text>
                             </svg>
                         </div>
-                        <p style="font-size: 11px; color: #555; margin-top: 10px;">Mitigated Order Flow: Price returning to Order Blocks to 'pickup' remaining orders before continuing.</p>
+                        <p style="font-size: 11px; color: #555; margin-top: 10px;">Mitigated Order Flow: Price returning
+                            to Order Blocks to 'pickup' remaining orders before continuing.</p>
                     </div>
                 </div>
 
                 <!-- MODULE 2 VIDEO -->
                 <div class="yt-player-section">
-                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 2 Lesson: Market Structure & Smart Money</h3>
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 2 Lesson: Market Structure & Smart
+                        Money</h3>
                     <div class="yt-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/1NQ5U9CHL-4?rel=0&modestbranding=1" title="Market Structure Smart Money" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/1NQ5U9CHL-4?rel=0&modestbranding=1"
+                            title="Market Structure Smart Money"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -1133,12 +1352,13 @@
                         transition from 'smart money' to 'dumb money' counterparts.</p>
 
                     <div class="illustration-container">
-                        <div class="svg-container" style="background: #111; padding: 20px; border-radius: 12px; border: 1px solid #333; margin: 20px 0;">
+                        <div class="svg-container"
+                            style="background: #111; padding: 20px; border-radius: 12px; border: 1px solid #333; margin: 20px 0;">
                             <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
                                 <!-- Axes -->
                                 <line x1="40" y1="360" x2="760" y2="360" stroke="#444" stroke-width="1" />
                                 <line x1="40" y1="360" x2="40" y2="40" stroke="#444" stroke-width="1" />
-                                
+
                                 <!-- The Path -->
                                 <path d="M 60 300 
                                          L 100 300 L 120 320 L 140 280 L 180 300 
@@ -1148,32 +1368,41 @@
                                          L 440 100 L 460 80 L 480 110 L 520 100 
                                          L 540 70 L 560 110 
                                          L 600 110 
-                                         L 740 340" 
-                                      fill="none" stroke="#D4AF37" stroke-width="3" stroke-linejoin="round" />
+                                         L 740 340" fill="none" stroke="#D4AF37" stroke-width="3"
+                                    stroke-linejoin="round" />
 
                                 <!-- Annotations -->
                                 <!-- Accumulation -->
                                 <circle cx="200" cy="330" r="5" fill="#00ff88" />
-                                <text x="200" y="355" fill="#00ff88" font-size="12" text-anchor="middle" font-family="Arial, sans-serif">SPRING (Manipulation)</text>
-                                <rect x="60" y="270" width="220" height="70" fill="none" stroke="#00ff88" stroke-dasharray="5,5" opacity="0.3" />
-                                <text x="170" y="260" fill="#00ff88" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial, sans-serif">ACCUMULATION</text>
+                                <text x="200" y="355" fill="#00ff88" font-size="12" text-anchor="middle"
+                                    font-family="Arial, sans-serif">SPRING (Manipulation)</text>
+                                <rect x="60" y="270" width="220" height="70" fill="none" stroke="#00ff88"
+                                    stroke-dasharray="5,5" opacity="0.3" />
+                                <text x="170" y="260" fill="#00ff88" font-size="14" font-weight="bold"
+                                    text-anchor="middle" font-family="Arial, sans-serif">ACCUMULATION</text>
 
                                 <!-- Markup -->
                                 <path d="M 310 240 L 350 180" stroke="#fff" stroke-width="1" marker-end="url(#arrow)" />
-                                <text x="330" y="210" fill="#fff" font-size="12" transform="rotate(-50, 330, 210)" font-family="Arial, sans-serif">MARKUP</text>
+                                <text x="330" y="210" fill="#fff" font-size="12" transform="rotate(-50, 330, 210)"
+                                    font-family="Arial, sans-serif">MARKUP</text>
 
                                 <!-- Distribution -->
                                 <circle cx="540" cy="70" r="5" fill="#ff3333" />
-                                <text x="540" y="60" fill="#ff3333" font-size="12" text-anchor="middle" font-family="Arial, sans-serif">UTAD (Manipulation)</text>
-                                <rect x="420" y="60" width="220" height="70" fill="none" stroke="#ff3333" stroke-dasharray="5,5" opacity="0.3" />
-                                <text x="530" y="145" fill="#ff3333" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial, sans-serif">DISTRIBUTION</text>
+                                <text x="540" y="60" fill="#ff3333" font-size="12" text-anchor="middle"
+                                    font-family="Arial, sans-serif">UTAD (Manipulation)</text>
+                                <rect x="420" y="60" width="220" height="70" fill="none" stroke="#ff3333"
+                                    stroke-dasharray="5,5" opacity="0.3" />
+                                <text x="530" y="145" fill="#ff3333" font-size="14" font-weight="bold"
+                                    text-anchor="middle" font-family="Arial, sans-serif">DISTRIBUTION</text>
 
                                 <!-- Markdown -->
                                 <path d="M 650 180 L 690 250" stroke="#fff" stroke-width="1" marker-end="url(#arrow)" />
-                                <text x="670" y="215" fill="#fff" font-size="12" transform="rotate(60, 670, 215)" font-family="Arial, sans-serif">MARKDOWN</text>
+                                <text x="670" y="215" fill="#fff" font-size="12" transform="rotate(60, 670, 215)"
+                                    font-family="Arial, sans-serif">MARKDOWN</text>
 
                                 <defs>
-                                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3"
+                                        orient="auto" markerUnits="strokeWidth">
                                         <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
                                     </marker>
                                 </defs>
@@ -1238,9 +1467,13 @@
 
                 <!-- MODULE 3 VIDEO -->
                 <div class="yt-player-section">
-                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 3 Lesson: Wyckoff Accumulation & Distribution</h3>
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 3 Lesson: Wyckoff Accumulation &
+                        Distribution</h3>
                     <div class="yt-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/30KaH_DED88?rel=0&modestbranding=1" title="Wyckoff Market Phases" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/30KaH_DED88?rel=0&modestbranding=1"
+                            title="Wyckoff Market Phases"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -1326,9 +1559,13 @@
 
                 <!-- MODULE 4 VIDEO -->
                 <div class="yt-player-section">
-                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 4 Lesson: Liquidity, Order Blocks & FVG</h3>
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 4 Lesson: Liquidity, Order Blocks &
+                        FVG</h3>
                     <div class="yt-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/RjR2kTErlq4?rel=0&modestbranding=1" title="Liquidity Order Blocks FVG" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/RjR2kTErlq4?rel=0&modestbranding=1"
+                            title="Liquidity Order Blocks FVG"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -1449,9 +1686,13 @@
 
                 <!-- MODULE 5 VIDEO -->
                 <div class="yt-player-section">
-                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 5 Lesson: SMC Entry Models & Execution</h3>
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 5 Lesson: SMC Entry Models &
+                        Execution</h3>
                     <div class="yt-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/K_hReiEVc2c?rel=0&modestbranding=1" title="SMC Entry Models" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/FmrkqxEmWxM?rel=0&modestbranding=1"
+                            title="SMC Entry Models & Execution"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -1571,9 +1812,13 @@
 
                 <!-- MODULE 6 VIDEO -->
                 <div class="yt-player-section">
-                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 6 Lesson: Risk Management & Trading Psychology</h3>
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 6 Lesson: Risk Management & Trading
+                        Psychology</h3>
                     <div class="yt-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/gb7nNveNBjg?rel=0&modestbranding=1" title="Risk Management Psychology" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/gb7nNveNBjg?rel=0&modestbranding=1"
+                            title="Risk Management Psychology"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -1664,17 +1909,245 @@
 
                 <!-- MODULE 7 VIDEO -->
                 <div class="yt-player-section">
-                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 7 Lesson: Professional Trading Business Model</h3>
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 7 Lesson: Professional Trading
+                        Business Model</h3>
                     <div class="yt-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/UFI2S_3QsQo?rel=0&modestbranding=1" title="Professional Trading Business Model" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/UFI2S_3QsQo?rel=0&modestbranding=1"
+                            title="Professional Trading Business Model"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
 
                 <div class="content-nav">
                     <button class="nav-btn" onclick="showModule(6)"><i class='bx bx-left-arrow-alt'></i>
                         Previous</button>
+                    <button class="nav-btn primary" onclick="showModule(8)">Next: Backtesting &amp; Strategy <i
+                            class='bx bx-right-arrow-alt'></i></button>
+                </div>
+            </div>
+
+            <!-- MODULE 8 -->
+            <div class="module-content-pane" id="module-8">
+                <div class="module-hero">
+                    <span class="module-number">Module 8 · The Edge Builder</span>
+                    <h1>Backtesting, Journalling &amp; Institutional-Level Strategy Creation</h1>
+                    <p>The difference between a gambler and a professional is a proven, documented edge. This module
+                        teaches you how to build, test, and refine your own institutional-grade trading strategy from
+                        scratch.</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class='bx bx-time-five'></i> 8.1 — What Is Backtesting &amp; Why 99% Do It Wrong</h3>
+                    <p>Backtesting is the process of applying your trading rules to historical price data to determine
+                        if your strategy has a statistical edge. Most retail traders skip this step — which is exactly
+                        why they have no consistent edge.</p>
+                    <div class="key-takeaways">
+                        <h4>🔑 The 3 Levels of Backtesting</h4>
+                        <ul>
+                            <li><strong>Manual Backtesting:</strong> Scrolling through historical charts bar-by-bar and
+                                logging setups that match your criteria. The most educational method — forces you to
+                                read price action deeply.</li>
+                            <li><strong>Semi-Automated (Replay Mode):</strong> Using TradingView's Bar Replay tool to
+                                simulate live conditions on historical data with realistic entry/exit execution.</li>
+                            <li><strong>Statistical Backtesting:</strong> Using tools like Forex Tester or custom
+                                scripts to run thousands of backtests and extract statistically significant sample sizes
+                                (minimum 200 trades).</li>
+                        </ul>
+                    </div>
+                    <div class="example-box" style="border-left: 4px solid #ff3333; margin-top: 20px;">
+                        <p style="color: #ff9999; font-size: 13px;"><strong>The 3 Backtesting Sins That Destroy Your
+                                Data:</strong></p>
+                        <ol style="color: #ccc; font-size: 13px; padding-left: 20px; line-height: 2;">
+                            <li><strong>Hindsight Bias</strong> — Marking setups you can only see because you know what
+                                happened next. Every entry must be decided BEFORE the candle closes.</li>
+                            <li><strong>Curve Fitting</strong> — Tweaking rules mid-test to make data look better. Lock
+                                your rules before you begin. Test one version, start to finish.</li>
+                            <li><strong>Insufficient Sample Size</strong> — Testing 20 trades and declaring the strategy
+                                proven. You need 200+ trades across multiple market conditions (trending, ranging,
+                                volatile).</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class='bx bx-spreadsheet'></i> 8.2 — Building Your Backtesting System: Step by Step</h3>
+                    <p>A structured backtest follows a repeatable protocol. Deviating from the protocol invalidates your
+                        results.</p>
+                    <div class="example-box" style="background: #000; border: 1px solid var(--vip-gold);">
+                        <p style="color: var(--vip-gold); font-weight: 700; margin-bottom: 10px;">The EdgeGrid Backtest
+                            Protocol</p>
+                        <ol style="font-size: 13px; line-height: 2; color: #ccc; padding-left: 20px;">
+                            <li><strong>Define the Pair &amp; Timeframe:</strong> Pick one pair (e.g. XAUUSD) and one
+                                primary timeframe (e.g. H1). Do not switch during the test.</li>
+                            <li><strong>Set the Date Range:</strong> Go back a minimum of 12 months. Include different
+                                market phases: trending up, trending down, choppy range.</li>
+                            <li><strong>Document Your Ruleset BEFORE Starting:</strong> Entry conditions, HTF bias
+                                requirement, session requirement, SL placement rule, TP rule. All must be defined in
+                                advance.</li>
+                            <li><strong>Log Every Valid Setup — Win or Lose:</strong> Do not cherry-pick. Log the setup
+                                whenever your rules fire, regardless of outcome.</li>
+                            <li><strong>Record the Following Per Trade:</strong> Date, Session, Pair, Setup Grade, Entry
+                                Price, SL, TP, R achieved, Notes.</li>
+                            <li><strong>Analyse After 200 Trades:</strong> Calculate Win Rate, Average R:R, Expectancy,
+                                Maximum Drawdown, and Best/Worst Performing Sessions.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class='bx bx-edit'></i> 8.3 — The Institutional Trade Journal: Your Most Valuable Asset</h3>
+                    <p>Your journal is not a record of trades — it is a <strong
+                            style="color: var(--vip-gold);">performance database</strong>. Hedge funds and prop trading
+                        firms maintain meticulous journals because they understand that data is the source of
+                        competitive advantage.</p>
+                    <div class="grid-2">
+                        <div class="example-box">
+                            <h4 style="color: #ff3333;">Retail "Journal"</h4>
+                            <ul style="font-size: 12px; color: #777; list-style: none; line-height: 2;">
+                                <li>❌ Screenshot of entry and exit only</li>
+                                <li>❌ No emotional state recorded</li>
+                                <li>❌ Never reviewed or analysed</li>
+                                <li>❌ No pattern identification</li>
+                                <li>❌ Stopped after 2 weeks</li>
+                            </ul>
+                        </div>
+                        <div class="example-box" style="border-color: var(--vip-gold);">
+                            <h4 style="color: var(--vip-gold);">Institutional Journal</h4>
+                            <ul style="font-size: 12px; color: #ccc; list-style: none; line-height: 2;">
+                                <li>✅ Setup grade (A+/A/B/C)</li>
+                                <li>✅ Emotional state pre/during/post</li>
+                                <li>✅ Reviewed weekly &amp; monthly</li>
+                                <li>✅ MAE/MFE tracked for each trade</li>
+                                <li>✅ Patterns identified and edge refined</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="key-takeaways" style="margin-top: 20px;">
+                        <h4>🔑 What to Log in Every Trade Entry</h4>
+                        <ul>
+                            <li><strong>Trade ID &amp; Date/Time:</strong> UTC time of entry for session analysis.</li>
+                            <li><strong>HTF Bias:</strong> What was the Daily/H4 trend at the time?</li>
+                            <li><strong>Setup Grade:</strong> A+ = all confluence. B = missing one element. C = you
+                                broke a rule.</li>
+                            <li><strong>Psychological State:</strong> Calm, Anxious, Bored, Revenge-mode, FOMO. Be
+                                brutally honest.</li>
+                            <li><strong>MAE (Max Adverse Excursion):</strong> How far did price move against you before
+                                it went your way?</li>
+                            <li><strong>MFE (Max Favorable Excursion):</strong> What was the most profit price offered
+                                before it closed?</li>
+                            <li><strong>Outcome in R:</strong> +2.5R, -1R, 0R (breakeven). Never measure in pips or
+                                dollars alone.</li>
+                            <li><strong>Post-Trade Review Note:</strong> What did you do right? What would you do
+                                differently?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class='bx bx-brain'></i> 8.4 — Weekly &amp; Monthly Performance Reviews</h3>
+                    <p>Data without review is useless. Your edge is not in the collecting — it's in the
+                        <em>analysis</em>. Block a minimum of 2 hours every weekend to conduct a structured review.</p>
+                    <div class="example-box" style="background: #000; border: 1px solid #333; margin-top: 20px;">
+                        <p style="color: var(--vip-gold); font-weight: 700; margin-bottom: 10px;">The Weekly Review
+                            Protocol</p>
+                        <ul style="font-size: 13px; color: #ccc; line-height: 1.9; list-style: none;">
+                            <li>→ <strong>Win/Loss Ratio This Week:</strong> Is it tracking to your backtest expectancy?
+                            </li>
+                            <li>→ <strong>Average R This Week:</strong> Are you cutting winners early or holding losers
+                                too long?</li>
+                            <li>→ <strong>Psychological Patterns:</strong> Did you revenge trade? Miss setups out of
+                                fear? Over-trade?</li>
+                            <li>→ <strong>Session Performance:</strong> Which session gave the best setups — London or
+                                NY?</li>
+                            <li>→ <strong>Setup Grade Distribution:</strong> What % of your trades were A+ vs C? Aim for
+                                80%+ A/A+.</li>
+                            <li>→ <strong>Rule Violations:</strong> Any trades taken outside your rules? These must be
+                                identified and eliminated.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3><i class='bx bx-cog'></i> 8.5 — Institutional-Level Retail Strategy Creation</h3>
+                    <p>A strategy is not a set of indicators. An institutional-grade strategy is a <strong
+                            style="color: var(--vip-gold);">complete decision framework</strong> — covering bias
+                        determination, zone identification, entry trigger, trade management, and exit.</p>
+                    <div class="example-box"
+                        style="background: #000; border: 1px solid var(--vip-gold); margin-bottom: 20px;">
+                        <p style="color: var(--vip-gold); font-weight: 700; margin-bottom: 10px;">💡 The 5-Component
+                            Strategy Framework</p>
+                        <ol style="font-size: 13px; line-height: 2; color: #ccc; padding-left: 20px;">
+                            <li><strong>Market Bias Filter:</strong> What HTF structure tells you the directional
+                                intent? (Daily BOS direction + Premium/Discount zone)</li>
+                            <li><strong>Key Zone Identification:</strong> Where is the HTF Order Block, FVG, or
+                                Liquidity Pool that price is targeting?</li>
+                            <li><strong>Entry Trigger:</strong> What LTF signal confirms the trade? (Liquidity Sweep +
+                                CHoCH + M1/M5 FVG retest)</li>
+                            <li><strong>Trade Management:</strong> Where is your SL (beyond structure), and how do you
+                                manage partial profits?</li>
+                            <li><strong>Invalidation Rule:</strong> Under what conditions is your bias wrong and you
+                                exit immediately?</li>
+                        </ol>
+                    </div>
+                    <div class="grid-2">
+                        <div class="example-box">
+                            <h4 style="color: var(--vip-gold);">Strategy Stress-Test Checklist</h4>
+                            <ul style="font-size: 12px; color: #ccc; list-style: none; line-height: 1.9;">
+                                <li>→ Tested on 200+ historical trades?</li>
+                                <li>→ Tested across trending AND ranging markets?</li>
+                                <li>→ Tested on multiple currency pairs?</li>
+                                <li>→ Win rate and expectancy documented?</li>
+                                <li>→ Maximum drawdown calculated and acceptable?</li>
+                                <li>→ Forward-tested on demo for 30 days?</li>
+                            </ul>
+                        </div>
+                        <div class="example-box">
+                            <h4 style="color: #00ff88;">Strategy Deployment Roadmap</h4>
+                            <ul style="font-size: 12px; color: #ccc; list-style: none; line-height: 1.9;">
+                                <li>📋 Phase 1: Backtest (200 trades, 12 months data)</li>
+                                <li>🖥️ Phase 2: Demo Forward-Test (30 days, live market)</li>
+                                <li>💰 Phase 3: Live Micro Account (0.01 lots, 60 days)</li>
+                                <li>📈 Phase 4: Scale to Standard Account</li>
+                                <li>🏢 Phase 5: Apply to Prop Firm Challenge</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="key-takeaways" style="margin-top: 20px;">
+                        <h4>🔑 Module 8 Mastery Checklist</h4>
+                        <ul>
+                            <li>I have backtested my strategy on a minimum of 200 historical trades across 12 months of
+                                data.</li>
+                            <li>I maintain a detailed journal that tracks setup grade, emotional state, MAE/MFE and R
+                                outcome for every trade.</li>
+                            <li>I conduct a structured weekly review every weekend without exception.</li>
+                            <li>My strategy has clearly defined rules for bias, zone, entry, SL, TP, and invalidation —
+                                with nothing left to interpretation.</li>
+                            <li>I have completed 30 days of profitable demo trading before going live.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- MODULE 8 VIDEO -->
+                <div class="yt-player-section">
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 8 Lesson: Backtesting, Journalling
+                        &amp; Strategy Creation</h3>
+                    <div class="yt-embed-wrapper">
+                        <iframe src="https://www.youtube.com/embed/RzjKKaLlY0s?rel=0&modestbranding=1"
+                            title="Backtesting Forex Strategy Journal"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="content-nav">
+                    <button class="nav-btn" onclick="showModule(7)"><i class='bx bx-left-arrow-alt'></i>
+                        Previous</button>
                     <button class="nav-btn primary"
-                        onclick="alert('Congratulations! You have completed the CAP Mastery Programme. Please contact your mentor for your final assessment.')">Complete
+                        onclick="alert('Congratulations! You have completed the full EdgeGrid VIP Mastery Programme. Contact your mentor for your final assessment and certification.')">Complete
                         Programme <i class='bx bx-check-double'></i></button>
                 </div>
             </div>
@@ -1684,7 +2157,8 @@
                 <div class="module-hero" style="border-bottom-color: var(--vip-gold);">
                     <span class="module-number" style="color: var(--vip-gold);">Institutional Toolkit</span>
                     <h1>Pro Trading Toolbox</h1>
-                    <p>Execute with precision. Use these institutional-grade calculators to manage your risk and project your compounding curve.</p>
+                    <p>Execute with precision. Use these institutional-grade calculators to manage your risk and project
+                        your compounding curve.</p>
                 </div>
 
                 <div class="content-section">
@@ -1715,11 +2189,12 @@
                                 </select>
                             </div>
                             <button class="calc-btn" onclick="calculateLotSize()">CALCULATE LOT SIZE</button>
-                            
+
                             <div class="calc-result" id="lotResult" style="display: none;">
                                 <div class="label">RECOMMENDED LOT SIZE</div>
                                 <div class="value" id="lotValue">0.00</div>
-                                <div class="label" style="color: #ff3333;">Amount at Risk: $<span id="riskAmount">0.00</span></div>
+                                <div class="label" style="color: #ff3333;">Amount at Risk: $<span
+                                        id="riskAmount">0.00</span></div>
                             </div>
                         </div>
 
@@ -1742,49 +2217,53 @@
                                 <input type="number" id="compMonths" placeholder="e.g., 12">
                             </div>
                             <button class="calc-btn" onclick="calculateCompounding()">PROJECT GROWTH</button>
-                            
+
                             <div class="calc-result" id="compResult" style="display: none;">
                                 <div class="label">PROJECTED BALANCE</div>
                                 <div class="value" style="color: var(--vip-gold);" id="compValue">$0.00</div>
-                                <div class="label" style="color: #00ff88;">Total Profit: $<span id="profitValue">0.00</span></div>
+                                <div class="label" style="color: #00ff88;">Total Profit: $<span
+                                        id="profitValue">0.00</span></div>
                             </div>
                         </div>
-                        </div>
+                    </div>
 
-                        <!-- Risk/Reward Profit Calculator -->
-                        <div class="tool-card" style="grid-column: 1 / -1; margin-top: 20px;">
-                            <div class="tool-header">
-                                <h4><i class='bx bx-target-lock'></i> Risk/Reward Profit Calculator</h4>
-                                <span class="badge-institutional">PROFIT EXPECTANCY</span>
-                            </div>
-                            <div class="grid-2">
-                                <div>
-                                    <div class="form-group">
-                                        <label>Account Balance ($)</label>
-                                        <input type="number" id="rrBalance" placeholder="e.g., 10000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Risk Amount ($)</label>
-                                        <input type="number" id="rrRisk" placeholder="e.g., 100">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Reward Ratio (1:X)</label>
-                                        <input type="number" id="rrRatio" placeholder="e.g., 3" step="0.5">
-                                    </div>
-                                    <button class="calc-btn" onclick="calculateRR()">CALCULATE PROFIT EXPECTANCY</button>
+                    <!-- Risk/Reward Profit Calculator -->
+                    <div class="tool-card" style="grid-column: 1 / -1; margin-top: 20px;">
+                        <div class="tool-header">
+                            <h4><i class='bx bx-target-lock'></i> Risk/Reward Profit Calculator</h4>
+                            <span class="badge-institutional">PROFIT EXPECTANCY</span>
+                        </div>
+                        <div class="grid-2">
+                            <div>
+                                <div class="form-group">
+                                    <label>Account Balance ($)</label>
+                                    <input type="number" id="rrBalance" placeholder="e.g., 10000">
                                 </div>
-                                <div class="calc-result" id="rrResult" style="display: none; margin-top: 0; flex-direction: column; justify-content: center;">
-                                    <div class="label">POTENTIAL PROFIT</div>
-                                    <div class="value" style="color: #00ff88;" id="rrProfitValue">+$0.00</div>
-                                    <div style="display: flex; justify-content: space-between; margin-top: 15px; padding-top: 15px; border-top: 1px solid #333;">
-                                        <div style="text-align: left;">
-                                            <div class="label">IF WON (Balance)</div>
-                                            <div style="color: #fff; font-weight: 700; font-size: 16px;" id="rrWinBal">$0.00</div>
+                                <div class="form-group">
+                                    <label>Risk Amount ($)</label>
+                                    <input type="number" id="rrRisk" placeholder="e.g., 100">
+                                </div>
+                                <div class="form-group">
+                                    <label>Reward Ratio (1:X)</label>
+                                    <input type="number" id="rrRatio" placeholder="e.g., 3" step="0.5">
+                                </div>
+                                <button class="calc-btn" onclick="calculateRR()">CALCULATE PROFIT EXPECTANCY</button>
+                            </div>
+                            <div class="calc-result" id="rrResult"
+                                style="display: none; margin-top: 0; flex-direction: column; justify-content: center;">
+                                <div class="label">POTENTIAL PROFIT</div>
+                                <div class="value" style="color: #00ff88;" id="rrProfitValue">+$0.00</div>
+                                <div
+                                    style="display: flex; justify-content: space-between; margin-top: 15px; padding-top: 15px; border-top: 1px solid #333;">
+                                    <div style="text-align: left;">
+                                        <div class="label">IF WON (Balance)</div>
+                                        <div style="color: #fff; font-weight: 700; font-size: 16px;" id="rrWinBal">$0.00
                                         </div>
-                                        <div style="text-align: right;">
-                                            <div class="label">IF LOST (Balance)</div>
-                                            <div style="color: #ff3333; font-weight: 700; font-size: 16px;" id="rrLossBal">$0.00</div>
-                                        </div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div class="label">IF LOST (Balance)</div>
+                                        <div style="color: #ff3333; font-weight: 700; font-size: 16px;" id="rrLossBal">
+                                            $0.00</div>
                                     </div>
                                 </div>
                             </div>
@@ -1792,6 +2271,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 
         </div>
 
@@ -1816,7 +2296,7 @@
                 item.classList.remove('active');
                 if (typeof num === 'number' && index === num - 1) {
                     item.classList.add('active');
-                } else if (num === 'tools' && index === 7) {
+                } else if (num === 'tools' && index === 8) {
                     item.classList.add('active');
                 }
             });
@@ -1849,7 +2329,7 @@
             const slPips = parseFloat(document.getElementById('stopLoss').value);
             const pipValueMultiplier = parseFloat(document.getElementById('pairType').value);
 
-            if(!balance || !risk || !slPips) {
+            if (!balance || !risk || !slPips) {
                 alert("Please fill in all fields.");
                 return;
             }
@@ -1867,7 +2347,7 @@
             const returnPct = parseFloat(document.getElementById('compReturn').value);
             const months = parseInt(document.getElementById('compMonths').value);
 
-            if(!start || !returnPct || !months) {
+            if (!start || !returnPct || !months) {
                 alert("Please fill in all fields.");
                 return;
             }
@@ -1875,8 +2355,8 @@
             const finalBalance = start * Math.pow((1 + (returnPct / 100)), months);
             const profit = finalBalance - start;
 
-            document.getElementById('compValue').innerText = "$" + finalBalance.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-            document.getElementById('profitValue').innerText = profit.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('compValue').innerText = "$" + finalBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('profitValue').innerText = profit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             document.getElementById('compResult').style.display = 'block';
         }
 
@@ -1885,12 +2365,12 @@
             const riskAmount = parseFloat(document.getElementById('rrRisk').value);
             const ratio = parseFloat(document.getElementById('rrRatio').value);
 
-            if(!balance || !riskAmount || !ratio) {
+            if (!balance || !riskAmount || !ratio) {
                 alert("Please fill in all fields.");
                 return;
             }
 
-            if(riskAmount > balance) {
+            if (riskAmount > balance) {
                 alert("Risk amount cannot be greater than account balance.");
                 return;
             }
@@ -1899,21 +2379,21 @@
             const winBal = balance + profit;
             const lossBal = balance - riskAmount;
 
-            document.getElementById('rrProfitValue').innerText = "+$" + profit.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-            document.getElementById('rrWinBal').innerText = "$" + winBal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-            document.getElementById('rrLossBal').innerText = "$" + lossBal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('rrProfitValue').innerText = "+$" + profit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('rrWinBal').innerText = "$" + winBal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('rrLossBal').innerText = "$" + lossBal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             document.getElementById('rrResult').style.display = 'flex';
         }
         // VIP Lock Logic
-        if(sessionStorage.getItem('vip_unlocked') === 'true') {
+        if (sessionStorage.getItem('vip_unlocked') === 'true') {
             document.getElementById('vipLockScreen').style.display = 'none';
         }
 
         function checkVipPasskey() {
             const pass = document.getElementById('vipPasskey').value;
             const inputField = document.getElementById('vipPasskey');
-            
-            if(pass.length >= 10) {
+
+            if (pass.length >= 10) {
                 sessionStorage.setItem('vip_unlocked', 'true');
                 document.getElementById('vipLockScreen').style.opacity = '0';
                 setTimeout(() => {
@@ -1928,10 +2408,10 @@
                 }, 2000);
             }
         }
-        
+
         // Allow pressing Enter to unlock
-        document.getElementById('vipPasskey').addEventListener('keypress', function(e) {
-            if(e.key === 'Enter') {
+        document.getElementById('vipPasskey').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
                 checkVipPasskey();
             }
         });
