@@ -139,6 +139,11 @@
             position: sticky;
             top: 0;
             z-index: 90;
+            gap: 10px;
+        }
+
+        .header-spacer {
+            flex: 1;
         }
 
         .search-box {
@@ -597,19 +602,63 @@
             }
 
             .vip-header {
-                padding: 0 15px;
+                padding: 0 12px;
+                height: 60px;
             }
 
             .vip-content-wrapper {
                 padding: 20px 15px;
+                /* Prevent any child from causing horizontal overflow */
+                overflow-x: hidden;
+                width: 100%;
             }
 
             .module-hero {
                 padding: 25px 20px;
             }
 
+            .module-hero h1 {
+                font-size: 22px;
+                line-height: 1.3;
+                word-break: break-word;
+            }
+
+            .content-section {
+                padding: 20px 15px;
+                overflow-x: hidden;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
             .search-box {
                 display: none;
+            }
+
+            /* Pin user-profile hard right on mobile */
+            .user-profile {
+                margin-left: auto;
+            }
+
+            .user-profile > div[style*="text-align: right"] p {
+                white-space: nowrap;
+            }
+
+            /* Prevent illustrations overflowing */
+            .illustration-container {
+                overflow-x: auto;
+            }
+
+            .illustration-container > div {
+                min-width: 0;
+            }
+
+            .key-takeaways ul li,
+            .content-section p,
+            .content-section li {
+                word-break: break-word;
+                overflow-wrap: break-word;
             }
         }
 
@@ -786,19 +835,23 @@
     <!-- Main Content -->
     <main class="vip-main">
         <header class="vip-header">
+            <!-- Search (hidden on mobile) -->
             <div class="search-box">
                 <i class='bx bx-search'></i>
                 <input type="text" placeholder="Search course content...">
             </div>
-            <div class="user-profile">
-                <div id="themeToggle" class="theme-toggle">
+            <!-- Spacer pushes profile to the right on desktop -->
+            <div class="header-spacer"></div>
+            <!-- User profile — always right-aligned -->
+            <div class="user-profile" style="display:flex; align-items:center; gap:12px; flex-shrink:0;">
+                <div id="themeToggle" class="theme-toggle" style="flex-shrink:0;">
                     <i class='bx bx-moon'></i>
                 </div>
-                <div style="text-align: right;">
-                    <p style="font-size: 14px; font-weight: 600; color: var(--vip-text);">VIP Member</p>
-                    <p style="font-size: 11px; color: var(--vip-gold);">PRO ACCESS</p>
+                <div style="text-align: right; flex-shrink:0;">
+                    <p style="font-size: 13px; font-weight: 600; color: var(--vip-text); white-space:nowrap;">VIP Member</p>
+                    <p style="font-size: 11px; color: var(--vip-gold); white-space:nowrap;">PRO ACCESS</p>
                 </div>
-                <div class="user-avatar">JD</div>
+                <div class="user-avatar" style="flex-shrink:0;">JD</div>
             </div>
         </header>
 
