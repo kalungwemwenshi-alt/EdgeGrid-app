@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VIP Inner Circle | EdgeGrid Traders Capital</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -31,12 +31,17 @@
             --vip-text-muted: #888;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: var(--vip-dark);
             color: var(--vip-text);
             display: flex;
             min-height: 100vh;
             overflow-x: hidden;
+            max-width: 100vw;
         }
 
         /* Sidebar Styles */
@@ -440,6 +445,78 @@
             .menu-toggle {
                 display: block;
             }
+
+            .vip-header {
+                padding: 0 15px;
+            }
+
+            .vip-content-wrapper {
+                padding: 20px 15px;
+            }
+
+            .module-hero {
+                padding: 25px 20px;
+            }
+
+            .search-box {
+                display: none;
+            }
+        }
+
+        /* YouTube Player */
+        .yt-player-section {
+            background: var(--vip-card-bg);
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--vip-border);
+        }
+
+        .yt-player-section h3 {
+            color: var(--vip-gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .yt-embed-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--vip-border);
+        }
+
+        .yt-embed-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Lock screen mobile fix */
+        #vipLockScreen {
+            padding: 20px;
+        }
+
+        @media (max-width: 480px) {
+            #vipLockScreen > div {
+                flex-direction: column;
+            }
+
+            #vipLockScreen > div input {
+                width: 100%;
+            }
+
+            #vipLockScreen > div button {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -447,13 +524,13 @@
 <body>
 
     <!-- VIP Access Lock Screen -->
-    <div id="vipLockScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: opacity 0.5s ease;">
+    <div id="vipLockScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050505; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: opacity 0.5s ease; padding: 20px;">
         <i class='bx bxs-lock-alt' style="font-size: 60px; color: var(--vip-gold); margin-bottom: 20px;"></i>
         <h2 style="color: #fff; margin-bottom: 10px;">Restricted Access</h2>
-        <p style="color: #888; font-size: 14px; margin-bottom: 30px;">Please enter your VIP Inner Circle passkey.</p>
-        <div style="display: flex; gap: 10px; max-width: 400px; width: 90%;">
-            <input type="password" id="vipPasskey" placeholder="Enter your personal private pin" style="flex: 1; padding: 12px 20px; border-radius: 4px; border: 1px solid #333; background: #111; color: #fff; outline: none; font-family: 'Inter', sans-serif;">
-            <button onclick="checkVipPasskey()" style="padding: 12px 24px; background: var(--vip-gold); color: #000; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; transition: 0.3s;">Unlock</button>
+        <p style="color: #888; font-size: 14px; margin-bottom: 30px; max-width: 320px;">Please enter your VIP Inner Circle passkey.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; max-width: 400px; width: 100%; justify-content: center;">
+            <input type="password" id="vipPasskey" placeholder="Enter your private pin" style="flex: 1; min-width: 0; padding: 14px 20px; border-radius: 8px; border: 1px solid #333; background: #111; color: #fff; outline: none; font-family: 'Inter', sans-serif; font-size: 16px; text-align: center;" onkeypress="if(event.key==='Enter') checkVipPasskey()">
+            <button onclick="checkVipPasskey()" style="padding: 14px 24px; background: var(--vip-gold); color: #000; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; white-space: nowrap;">Unlock</button>
         </div>
         <p id="vipPassError" style="color: #ff3333; font-size: 12px; margin-top: 15px; display: none;">Incorrect input, correct to avoid IP device block.</p>
     </div>
@@ -793,6 +870,14 @@
                     </div>
                 </div>
 
+                <!-- MODULE 1 VIDEO -->
+                <div class="yt-player-section">
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 1 Lesson: Institutional Forex Architecture</h3>
+                    <div class="yt-embed-wrapper">
+                        <iframe src="https://www.youtube.com/embed/sQBTswIavnw?rel=0&modestbranding=1" title="Institutional Forex Architecture" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <div class="content-nav">
                     <button class="nav-btn" disabled><i class='bx bx-left-arrow-alt'></i> Previous</button>
                     <button class="nav-btn primary" onclick="showModule(2)">Module 2: Market Structure <i
@@ -1015,6 +1100,14 @@
                     </div>
                 </div>
 
+                <!-- MODULE 2 VIDEO -->
+                <div class="yt-player-section">
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 2 Lesson: Market Structure & Smart Money</h3>
+                    <div class="yt-embed-wrapper">
+                        <iframe src="https://www.youtube.com/embed/1NQ5U9CHL-4?rel=0&modestbranding=1" title="Market Structure Smart Money" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <div class="content-nav">
                     <button class="nav-btn" onclick="showModule(1)"><i class='bx bx-left-arrow-alt'></i>
                         Previous</button>
@@ -1143,6 +1236,14 @@
                     </div>
                 </div>
 
+                <!-- MODULE 3 VIDEO -->
+                <div class="yt-player-section">
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 3 Lesson: Wyckoff Accumulation & Distribution</h3>
+                    <div class="yt-embed-wrapper">
+                        <iframe src="https://www.youtube.com/embed/30KaH_DED88?rel=0&modestbranding=1" title="Wyckoff Market Phases" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <div class="content-nav">
                     <button class="nav-btn" onclick="showModule(2)"><i class='bx bx-left-arrow-alt'></i>
                         Previous</button>
@@ -1220,6 +1321,14 @@
                         <p style="font-size: 13px; color: #ccc;"><strong>Pro Tip:</strong> The most powerful setups
                             occur when price sweeps liquidity, hits an unmitigated Order Block, and leaves a clear FVG.
                             This 'Confluence of Three' is the backbone of institutional trading.</p>
+                    </div>
+                </div>
+
+                <!-- MODULE 4 VIDEO -->
+                <div class="yt-player-section">
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 4 Lesson: Liquidity, Order Blocks & FVG</h3>
+                    <div class="yt-embed-wrapper">
+                        <iframe src="https://www.youtube.com/embed/RjR2kTErlq4?rel=0&modestbranding=1" title="Liquidity Order Blocks FVG" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -1338,6 +1447,14 @@
                     </div>
                 </div>
 
+                <!-- MODULE 5 VIDEO -->
+                <div class="yt-player-section">
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 5 Lesson: SMC Entry Models & Execution</h3>
+                    <div class="yt-embed-wrapper">
+                        <iframe src="https://www.youtube.com/embed/K_hReiEVc2c?rel=0&modestbranding=1" title="SMC Entry Models" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <div class="content-nav">
                     <button class="nav-btn" onclick="showModule(4)"><i class='bx bx-left-arrow-alt'></i>
                         Previous</button>
@@ -1452,6 +1569,14 @@
                     </div>
                 </div>
 
+                <!-- MODULE 6 VIDEO -->
+                <div class="yt-player-section">
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 6 Lesson: Risk Management & Trading Psychology</h3>
+                    <div class="yt-embed-wrapper">
+                        <iframe src="https://www.youtube.com/embed/gb7nNveNBjg?rel=0&modestbranding=1" title="Risk Management Psychology" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <div class="content-nav">
                     <button class="nav-btn" onclick="showModule(5)"><i class='bx bx-left-arrow-alt'></i>
                         Previous</button>
@@ -1535,6 +1660,14 @@
                         surgical precision.</p>
                     <div style="margin-top: 40px; font-weight: 700; font-size: 24px; letter-spacing: 3px; color: #fff;">
                         WELCOME TO THE INNER CIRCLE.</div>
+                </div>
+
+                <!-- MODULE 7 VIDEO -->
+                <div class="yt-player-section">
+                    <h3><i class='bx bxl-youtube' style="color:#FF0000"></i> Module 7 Lesson: Professional Trading Business Model</h3>
+                    <div class="yt-embed-wrapper">
+                        <iframe src="https://www.youtube.com/embed/UFI2S_3QsQo?rel=0&modestbranding=1" title="Professional Trading Business Model" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
 
                 <div class="content-nav">
