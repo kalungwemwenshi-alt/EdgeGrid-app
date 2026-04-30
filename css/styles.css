@@ -568,6 +568,13 @@ footer {
   transform: translateY(0);
 }
 
+.wa-popup.active + .whatsapp-float {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0);
+}
+
+
 .wa-header {
   background: #25D366;
   color: #fff;
