@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
 
     <!-- Navigation -->
@@ -24,7 +26,7 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
-                        <div class="nav-right-actions" style="display: flex; align-items: center; gap: 15px;">
+            <div class="nav-right-actions" style="display: flex; align-items: center; gap: 15px;">
                 <div id="themeToggle" class="theme-toggle">
                     <i class='bx bx-moon'></i>
                 </div>
@@ -34,7 +36,8 @@
                         <i class='bx bxs-phone'></i> <span class="hide-mobile">+260 973 493 949</span>
                     </a>
                 </div>
-                <a href="VIPmembers.html" class="vip-top-btn" style="display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; background: var(--gold-gradient); color: var(--secondary-color); border-radius: 50%; font-size: 20px; box-shadow: 0 4px 10px rgba(212,175,55,0.4); transition: transform 0.3s ease;">
+                <a href="VIPmembers.html" class="vip-top-btn"
+                    style="display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; background: var(--gold-gradient); color: var(--secondary-color); border-radius: 50%; font-size: 20px; box-shadow: 0 4px 10px rgba(212,175,55,0.4); transition: transform 0.3s ease;">
                     <i class='bx bxs-crown'></i>
                 </a>
             </div>
@@ -44,7 +47,9 @@
     <div class="page-header">
         <div class="container">
             <h1>Our Trading Programs</h1>
-            <p style="margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">Unlock your trading potential with our tailored programs, designed to take you from a complete beginner to a confident, funded professional. 'Learn Now, Pay Later' eligible.</p>
+            <p style="margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">Unlock your trading
+                potential with our tailored programs, designed to take you from a complete beginner to a confident,
+                funded professional. 'Learn Now, Pay Later' eligible.</p>
         </div>
     </div>
 
@@ -55,52 +60,70 @@
                 <div class="card">
                     <div class="card-icon"><i class='bx bx-bar-chart-alt-2'></i></div>
                     <h3>Elite Program</h3>
-                    <p>The ultimate foundational course covering the A to Z of the forex market. Perfect for beginners to establish a solid groundwork.</p>
+                    <p>The ultimate foundational course covering the A to Z of the forex market. Perfect for beginners
+                        to establish a solid groundwork.</p>
+                    <p class="course-price" style="font-weight: 700; color: var(--vip-gold); margin-top: 5px;">$50 – 30
+                        Day Intense Training</p>
                     <div class="card-meta">
                         <span><i class='bx bx-book-open'></i> Module: 16</span>
                         <span><i class='bx bxs-star' style="color: var(--primary-color);"></i> 4.5</span>
                     </div>
-                    <div style="font-size: 13px; color: var(--text-light); margin-bottom: 20px;">Enrolled: 1500+ Students</div>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%; display: block; text-align: center;">Enroll Now</a>
+                    <div style="font-size: 13px; color: var(--text-light); margin-bottom: 20px;">Enrolled: 1500+
+                        Students</div>
+                    <a href="#" onclick="openEnrollModal(); return false;" class="btn btn-outline"
+                        style="width: 100%; display: block; text-align: center;">Enroll Now</a>
                 </div>
 
                 <!-- Course 2 -->
                 <div class="card">
                     <div class="card-icon"><i class='bx bx-line-chart'></i></div>
                     <h3>Extra Earners</h3>
-                    <p>Designed for part-time traders looking to generate consistent secondary income with efficient, easy-to-manage strategies.</p>
+                    <p>Designed for part-time traders looking to generate consistent secondary income with efficient,
+                        easy-to-manage strategies.</p>
+                    <p class="course-price" style="font-weight: 700; color: var(--vip-gold); margin-top: 5px;">$89 –
+                        Includes Signals</p>
                     <div class="card-meta">
                         <span><i class='bx bx-book-open'></i> Module: 12</span>
                         <span><i class='bx bxs-star' style="color: var(--primary-color);"></i> 4.5</span>
                     </div>
-                    <div style="font-size: 13px; color: var(--text-light); margin-bottom: 20px;">Enrolled: 2800+ Students</div>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%; display: block; text-align: center;">Enroll Now</a>
+                    <div style="font-size: 13px; color: var(--text-light); margin-bottom: 20px;">Enrolled: 2800+
+                        Students</div>
+                    <a href="#" onclick="openEnrollModal(); return false;" class="btn btn-outline"
+                        style="width: 100%; display: block; text-align: center;">Enroll Now</a>
                 </div>
 
                 <!-- Course 3 -->
                 <div class="card">
                     <div class="card-icon"><i class='bx bx-rocket'></i></div>
                     <h3>Advanced TFL</h3>
-                    <p>Master institutional algorithmic trading methods, smart money concepts, and high-probability liquidity grabs.</p>
+                    <p>Master institutional algorithmic trading methods, smart money concepts, and high-probability
+                        liquidity grabs.</p>
+                    <p class="course-price" style="font-weight: 700; color: var(--vip-gold); margin-top: 5px;">$149 – 6
+                        Weeks Advanced TFL (Exclusive Trading Program)</p>
                     <div class="card-meta">
                         <span><i class='bx bx-book-open'></i> Module: 22</span>
                         <span><i class='bx bxs-star' style="color: var(--primary-color);"></i> 4.8</span>
                     </div>
-                    <div style="font-size: 13px; color: var(--text-light); margin-bottom: 20px;">Enrolled: 100+ Students</div>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%; display: block; text-align: center;">Enroll Now</a>
+                    <div style="font-size: 13px; color: var(--text-light); margin-bottom: 20px;">Enrolled: 100+ Students
+                    </div>
+                    <a href="#" onclick="openEnrollModal(); return false;" class="btn btn-outline"
+                        style="width: 100%; display: block; text-align: center;">Enroll Now</a>
                 </div>
 
                 <!-- Course 4: VIP Mastery -->
                 <div class="card" style="border: 1px solid var(--primary-color); background: rgba(212, 175, 55, 0.05);">
-                    <div class="card-icon" style="background: var(--primary-color); color: var(--secondary-color);"><i class='bx bxs-crown'></i></div>
+                    <div class="card-icon" style="background: var(--primary-color); color: var(--secondary-color);"><i
+                            class='bx bxs-crown'></i></div>
                     <h3>CAP Mastery</h3>
-                    <p>Our flagship 'Inner Circle' programme. Exclusive institutional notes, real-time examples, and 1-on-1 mentorship.</p>
+                    <p>Our flagship 'Inner Circle' programme. Exclusive institutional notes, real-time examples, and
+                        1-on-1 mentorship.</p>
                     <div class="card-meta">
                         <span><i class='bx bx-book-open'></i> Module: 7</span>
                         <span><i class='bx bxs-star' style="color: var(--primary-color);"></i> 5.0</span>
                     </div>
                     <div style="font-size: 13px; color: var(--text-light); margin-bottom: 20px;">VIP Access Only</div>
-                    <a href="VIPmembers.html" class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Access Course</a>
+                    <a href="VIPmembers.html" class="btn btn-primary"
+                        style="width: 100%; display: block; text-align: center;">Access Course</a>
                 </div>
             </div>
         </div>
@@ -112,7 +135,8 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>EdgeGrid Traders Capital</h4>
-                    <p>Based in Livingstone, Zambia, we are dedicated to creating profitable traders through transparent education and our 'Learn Now Pay Later' initiative.</p>
+                    <p>Based in Livingstone, Zambia, we are dedicated to creating profitable traders through transparent
+                        education and our 'Learn Now Pay Later' initiative.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
@@ -132,12 +156,51 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; <span id="year"></span> EdgeGrid Traders Capital. All rights reserved. | <i class='bx bxs-map'></i> Livingstone, Zambia | <i class='bx bxs-phone'></i> +260 973 493 949
+                &copy; <span id="year"></span> EdgeGrid Traders Capital. All rights reserved. | <i
+                    class='bx bxs-map'></i> Livingstone, Zambia | <i class='bx bxs-phone'></i> +260 973 493 949
             </div>
         </div>
     </footer>
+    <!-- Enrollment Modal -->
+    <div id="enrollModal" class="enroll-modal">
+        <div class="enroll-modal-content">
+            <div class="enroll-modal-header">
+                <h3>Start Your Trading Journey</h3>
+                <i class='bx bx-x' onclick="closeEnrollModal()"></i>
+            </div>
+            <div class="enroll-modal-body">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="enrolName" placeholder="e.g. John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" id="enrolCountry" placeholder="e.g. Zambia">
+                </div>
+                <div class="form-group">
+                    <label>Trading Experience</label>
+                    <select id="enrolExperience">
+                        <option value="Complete Beginner">Complete Beginner</option>
+                        <option value="Less than 1 year">Less than 1 year</option>
+                        <option value="1-3 years">1-3 years</option>
+                        <option value="3+ years">3+ years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Source of Funds</label>
+                    <select id="enrolFunds">
+                        <option value="Personal Savings">Personal Savings</option>
+                        <option value="Salary / Employment">Salary / Employment</option>
+                        <option value="Prop Firm Funded">Prop Firm Funded</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 10px;"
+                    onclick="submitEnrollment()">Submit Application</button>
+            </div>
+        </div>
+    </div>
 
-    <script src="js/main.js"></script>
 
     <!-- Mobile Bottom Navigation -->
     <div class="mobile-bottom-nav">
@@ -175,7 +238,8 @@
                 </div>
             </div>
             <div class="wa-footer">
-                <input type="text" id="waMessageInput" placeholder="Type a message..." onkeypress="if(event.key === 'Enter') sendWAMessage()">
+                <input type="text" id="waMessageInput" placeholder="Type a message..."
+                    onkeypress="if(event.key === 'Enter') sendWAMessage()">
                 <button onclick="sendWAMessage()"><i class='bx bxs-send'></i></button>
             </div>
         </div>
@@ -187,6 +251,7 @@
 
     <script src="js/main.js"></script>
     <script>
+        /* ── WhatsApp popup ── */
         function toggleWAPopup() {
             const popup = document.getElementById('waPopup');
             popup.classList.toggle('active');
@@ -205,6 +270,30 @@
                     toggleWAPopup();
                 });
             }
+        }
+
+        /* ── Enrollment Modal ── */
+        function openEnrollModal() {
+            document.getElementById('enrollModal').classList.add('active');
+        }
+        function closeEnrollModal() {
+            document.getElementById('enrollModal').classList.remove('active');
+        }
+        function submitEnrollment() {
+            const name = document.getElementById('enrolName').value.trim();
+            const country = document.getElementById('enrolCountry').value.trim();
+            const experience = document.getElementById('enrolExperience').value;
+            const funds = document.getElementById('enrolFunds').value;
+            if (!name || !country) {
+                alert('Please fill in your name and country.');
+                return;
+            }
+            const message = `*New Enrollment Application*\n\n*Name:* ${name}\n*Country:* ${country}\n*Experience:* ${experience}\n*Source of Funds:* ${funds}\n\nI would like to join the EdgeGrid Traders Capital program.`;
+            navigator.clipboard.writeText(message).catch(err => console.log('Clipboard err:', err)).finally(() => {
+                const encodedMsg = encodeURIComponent(message);
+                window.open(`https://wa.me/260973493949?text=${encodedMsg}`, '_blank');
+                closeEnrollModal();
+            });
         }
     </script>
 </body>
