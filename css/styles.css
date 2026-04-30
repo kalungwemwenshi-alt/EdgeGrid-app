@@ -806,3 +806,121 @@ footer {
   border-color: var(--primary-color);
 }
 
+/* Team Section */
+.team-section {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 25px;
+  width: 100%;
+}
+
+.team-card {
+  background: var(--bg-main);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 0; /* Prevents grid items from overflowing */
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.team-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-bottom: 3px solid var(--primary-color); /* Stronger gold edge */
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.team-card:hover .team-image img {
+  transform: scale(1.08);
+}
+
+.team-info {
+  padding: 20px 15px;
+}
+
+.team-info h3 {
+  font-size: 18px;
+  color: var(--secondary-color);
+  margin-bottom: 4px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-info .designation {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.expertise-tags span {
+  font-size: 10px;
+  background: var(--bg-gray);
+  color: var(--text-light);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.team-card:hover .expertise-tags span {
+  border-color: var(--primary-color);
+  color: var(--secondary-color);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+
+@media (max-width: 992px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+  }
+  .team-info h3 {
+    font-size: 16px;
+  }
+  .team-info .designation {
+    font-size: 12px;
+  }
+}
+
+
+
+
