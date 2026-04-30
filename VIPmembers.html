@@ -325,7 +325,11 @@
         .example-box[style*="background: #111"] p,
         .example-box[style*="background: #111"] li,
         .example-box[style*="background:#000"] p,
-        .example-box[style*="background:#111"] p {
+        .example-box[style*="background:#111"] p,
+        .illustration-container div[style*="background: #000"] p,
+        .illustration-container div[style*="background: #000"] text,
+        .illustration-container div[style*="background: #111"] p,
+        .illustration-container div[style*="background: #111"] text {
             color: #ddd !important;
         }
 
@@ -641,7 +645,7 @@
                 margin-left: auto;
             }
 
-            .user-profile > div[style*="text-align: right"] p {
+            .user-profile>div[style*="text-align: right"] p {
                 white-space: nowrap;
             }
 
@@ -650,7 +654,7 @@
                 overflow-x: auto;
             }
 
-            .illustration-container > div {
+            .illustration-container>div {
                 min-width: 0;
             }
 
@@ -848,7 +852,8 @@
                     <i class='bx bx-moon'></i>
                 </div>
                 <div style="text-align: right; flex-shrink:0;">
-                    <p style="font-size: 13px; font-weight: 600; color: var(--vip-text); white-space:nowrap;">VIP Member</p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--vip-text); white-space:nowrap;">VIP Member
+                    </p>
                     <p style="font-size: 11px; color: var(--vip-gold); white-space:nowrap;">PRO ACCESS</p>
                 </div>
                 <div class="user-avatar" style="flex-shrink:0;">JD</div>
@@ -860,13 +865,12 @@
             <!-- MODULE 1 -->
             <div class="module-content-pane active" id="module-1">
                 <div class="module-hero">
-                    <span class="module-number">Module 1 · Foundation</span>
-                    <h1>Foundation of an Institutional Trader</h1>
-                    <p>Before placing a single trade, you must understand the battlefield. This module reveals the true
-                        architecture of the Forex market — and why retail traders are systematically designed to lose.
-                    </p>
+                    <span class="module-number">The Foundation</span>
+                    <h1>Module 1: Foundation of an Institutional Trader</h1>
+                    <p>Understanding the marketplace architecture and transitioning from a retail victim to an
+                        institutional operator.</p>
                     <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width:14%"></div>
+                        <div class="progress-bar-fill" style="width: 12.5%;"></div>
                     </div>
                 </div>
 
@@ -876,216 +880,164 @@
                         from the uninformed to the informed. The daily volume exceeds <strong
                             style="color:var(--vip-gold)">$7.5 trillion</strong> — and retail traders account for less
                         than 5% of that volume.</p>
-                    <p>The market is dominated by a strict hierarchy. Understanding your position in this hierarchy is
-                        the first step to trading it correctly.</p>
-                    <div class="illustration-container" style="overflow-x:hidden;">
-                        <p style="font-size:11px;color:#555;margin-bottom:15px;letter-spacing:1px">FOREX MARKET
-                            PARTICIPANT HIERARCHY</p>
+
+                    <div class="key-takeaways">
+                        <h4>🔑 The Institutional Hierarchy</h4>
+                        <p style="font-size: 13px; color: #ccc;">The market is dominated by a strict hierarchy. If you
+                            don't know where you sit in this chain, you are likely the liquidity for those above you.
+                        </p>
+                    </div>
+
+                    <div class="illustration-container">
                         <div
-                            style="display:flex;flex-direction:column;gap:8px;align-items:center;width:100%;max-width:480px;margin:0 auto;box-sizing:border-box;">
-                            <div
-                                style="background:var(--vip-gold);width:30%;min-width:110px;max-width:140px;padding:10px;border-radius:6px;color:#000;text-align:center;font-size:11px;font-weight:700">
-                                TIER 1 BANKS<br><span style="font-weight:400;font-size:10px">JPMorgan, Citi,
-                                    Deutsche</span></div>
-                            <div style="color:#555;font-size:10px">▼ Flow Down</div>
-                            <div
-                                style="background:#2a2a2a;border:1px solid #D4AF37;width:55%;min-width:160px;max-width:250px;padding:10px;border-radius:6px;text-align:center;font-size:11px">
-                                CENTRAL BANKS &amp; SOVEREIGN FUNDS<br><span style="color:#aaa;font-size:10px">Fed, ECB,
-                                    PBOC — Policy &amp; Intervention</span></div>
-                            <div style="color:#555;font-size:10px">▼</div>
-                            <div
-                                style="background:#222;width:75%;min-width:180px;max-width:340px;padding:10px;border-radius:6px;text-align:center;font-size:11px">
-                                HEDGE FUNDS &amp; ASSET MANAGERS<br><span style="color:#aaa;font-size:10px">Bridgewater,
-                                    Renaissance — Directional Bias</span></div>
-                            <div style="color:#555;font-size:10px">▼</div>
-                            <div
-                                style="background:#1a1a1a;width:100%;max-width:420px;padding:10px;border-radius:6px;text-align:center;font-size:11px;color:#bbb;box-sizing:border-box;">
-                                RETAIL BROKERS → RETAIL TRADERS (YOU)<br><span style="font-size:10px">Last to know.
-                                    First to lose.</span></div>
+                            style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; width: 100%; max-width: 100%; box-sizing: border-box;">
+                            <svg width="100%" height="auto" viewBox="0 0 500 250" style="display: block;">
+                                <!-- Pyramid Shapes -->
+                                <!-- Tier 1 -->
+                                <path d="M 250 20 L 320 100 L 180 100 Z" fill="rgba(212, 175, 55, 0.2)"
+                                    stroke="var(--vip-gold)" stroke-width="2" />
+                                <text x="250" y="70" fill="var(--vip-gold)" font-size="14" font-weight="700"
+                                    text-anchor="middle">TIER 1 BANKS</text>
+                                <text x="250" y="85" fill="#ddd" font-size="10" text-anchor="middle">(Market
+                                    Makers)</text>
+
+                                <!-- Central Banks -->
+                                <path d="M 180 100 L 320 100 L 360 160 L 140 160 Z" fill="rgba(255, 255, 255, 0.05)"
+                                    stroke="#444" stroke-width="1" />
+                                <text x="250" y="130" fill="#eee" font-size="12" font-weight="600"
+                                    text-anchor="middle">CENTRAL BANKS / GOV</text>
+                                <text x="250" y="145" fill="#bbb" font-size="10" text-anchor="middle">(Liquidity
+                                    Providers)</text>
+
+                                <!-- Hedge Funds -->
+                                <path d="M 140 160 L 360 160 L 400 220 L 100 220 Z" fill="rgba(255, 255, 255, 0.03)"
+                                    stroke="#333" stroke-width="1" />
+                                <text x="250" y="190" fill="#ccc" font-size="12" font-weight="600"
+                                    text-anchor="middle">HEDGE FUNDS / ASSET MGRS</text>
+                                <text x="250" y="205" fill="#aaa" font-size="10" text-anchor="middle">(Directional
+                                    Speculators)</text>
+
+                                <!-- Retail -->
+                                <rect x="50" y="225" width="400" height="20" fill="#111" stroke="#ff3333"
+                                    stroke-width="1" stroke-dasharray="4" />
+                                <text x="250" y="239" fill="#ff3333" font-size="11" font-weight="700"
+                                    text-anchor="middle">RETAIL TRADERS (LIQUIDITY POOL)</text>
+                            </svg>
                         </div>
-                    </div>
-                    <div class="key-takeaways">
-                        <h4>🔑 Secret: Why Institutions Need Retail Traders</h4>
-                        <ul>
-                            <li>Institutions cannot fill $100M orders in one shot — they need counterparties. Your sell
-                                order is their buy order.</li>
-                            <li>Every retail stop-loss is a pool of liquidity that institutions engineer price to reach
-                                before reversing.</li>
-                            <li>Your broker is NOT your friend — most retail brokers operate a dealing desk and take the
-                                other side of your trades.</li>
-                            <li>The spread, overnight fees (swap), and slippage are all mechanisms that slowly drain
-                                retail accounts.</li>
-                        </ul>
+                        <p style="font-size: 11px; color: #555; margin-top: 10px;">Market Hierarchy: Value flows from
+                            the bottom (uninformed) to the top (informed).</p>
                     </div>
                 </div>
 
                 <div class="content-section">
-                    <h3><i class='bx bx-analyse'></i> 1.2 — How Price ACTUALLY Moves: The Delivery System</h3>
+                    <h3><i class='bx bx-analyse'></i> 1.2 — How Price ACTUALLY Moves</h3>
                     <p>Price does not move because of supply and demand in the way textbooks describe. Price is
-                        <em>delivered</em> by algorithms (referred to as the <strong style="color:var(--vip-gold)">IPDA
-                            — Interbank Price Delivery Algorithm</strong>). This algorithm seeks liquidity and engineers
-                        moves to collect it.
-                    </p>
+                        delivered by algorithms (IPDA) that seek liquidity and engineer moves to collect it.</p>
+
                     <div class="grid-2">
                         <div class="example-box">
-                            <div class="example-header"><span style="color:#ff6b6b">❌ RETAIL BELIEF</span></div>
-                            <p style="font-size:13px;color:#888">"Price went up because there were more buyers than
-                                sellers. I'll buy the breakout."</p>
-                            <p style="font-size:12px;color:#555;margin-top:10px">Result: You buy the top, price reverses
-                                immediately, stop hit.</p>
+                            <h4 style="color: #ff3333;">Retail Belief</h4>
+                            <p style="font-size: 13px; color: #888;">"Price goes up because there are more buyers than
+                                sellers. I'll buy the support breakout."</p>
+                            <div
+                                style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #222; font-size: 11px; color: #ff3333;">
+                                Result: The 'Breakout' is actually a liquidity sweep.
+                            </div>
                         </div>
-                        <div class="example-box" style="border-color:var(--vip-gold)">
-                            <div class="example-header"><span style="color:var(--vip-gold)">✅ INSTITUTIONAL
-                                    REALITY</span></div>
-                            <p style="font-size:13px;color:#ccc">"Price broke above equal highs to collect buy-side
-                                liquidity. Smart money was actually selling into that breakout."</p>
-                            <p style="font-size:12px;color:var(--vip-gold);margin-top:10px">Result: Price reverses,
-                                institution is short, profits massively.</p>
+                        <div class="example-box">
+                            <h4 style="color: var(--vip-gold);">Institutional Reality</h4>
+                            <p style="font-size: 13px; color: #ccc;">"Price is moving to clear the stops above the high
+                                to fill a massive sell order."</p>
+                            <div
+                                style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #222; font-size: 11px; color: var(--vip-gold);">
+                                Result: Entering short at the top of the 'breakout'.
+                            </div>
                         </div>
-                    </div>
-                    <div class="key-takeaways" style="margin-top:20px">
-                        <h4>🔑 The 3 Phases of Every Price Move</h4>
-                        <ul>
-                            <li><strong>Phase 1 — Accumulation/Distribution:</strong> Institutions quietly build
-                                positions inside a range. Price appears "choppy" to retail. This is deliberate.</li>
-                            <li><strong>Phase 2 — Manipulation (The Trap):</strong> Price makes a false move against the
-                                true intent — triggering retail stops and creating the fuel for the real move.</li>
-                            <li><strong>Phase 3 — Distribution/Expansion:</strong> Price delivers to the actual
-                                institutional target. Retail enters late thinking it's a new trend.</li>
-                        </ul>
                     </div>
                 </div>
 
                 <div class="content-section">
-                    <h3><i class='bx bx-brain'></i> 1.3 — The 90% Loss Rate: Root Cause Analysis</h3>
-                    <p>Studies show 72–90% of retail Forex traders lose money. This isn't bad luck — it's a predictable
-                        outcome of the retail trading education system which teaches strategies that serve brokers, not
-                        traders.</p>
-                    <div class="example-box" style="border-left:4px solid #ff3333;margin-bottom:20px">
-                        <p style="color:#ff9999;font-size:13px"><strong>The 5 Retail Traps That Guarantee
-                                Failure:</strong></p>
-                        <ol style="color:#ccc;font-size:13px;padding-left:20px;line-height:2">
-                            <li><strong>Indicator Overload</strong> — RSI, MACD, Stochastics are all lagging. By the
-                                time they signal, institutions have already moved.</li>
-                            <li><strong>Pattern Trading Without Context</strong> — A "Head & Shoulders" on a 15M chart
-                                means nothing without knowing the HTF bias.</li>
-                            <li><strong>News Trading Without Understanding Flow</strong> — News events are liquidity
-                                events. Institutions position BEFORE the news, then use the spike to exit into retail
-                                panic.</li>
-                            <li><strong>Fixed Take Profit/Stop Loss</strong> — Using 20 pip stops ignores market
-                                structure entirely. Stops must be placed beyond structural points.</li>
-                            <li><strong>Averaging Down</strong> — Adding to a losing position is one of the fastest ways
-                                to blow an account.</li>
-                        </ol>
-                    </div>
+                    <h3><i class='bx bx-brain'></i> 1.3 — The Operator Mindset</h3>
+                    <p>Trading is a game of probability and psychology. To win, you must stop thinking like a retail
+                        gambler and start operating like an institutional business.</p>
+
                     <div class="grid-2">
                         <div class="example-box">
-                            <div class="example-header"><span>GAMBLER MINDSET</span><span
-                                    class="badge-retail">LOSER</span></div>
-                            <ul style="font-size:12px;color:#777;list-style:none;line-height:2">
+                            <h4 style="color: #ff3333;">Gambler Mindset</h4>
+                            <ul style="font-size: 12px; color: #777; list-style: none; padding: 0; line-height: 1.8;">
                                 <li>❌ Trades out of boredom</li>
-                                <li>❌ Moves stops further to "give it room"</li>
-                                <li>❌ Doubles position after a loss</li>
-                                <li>❌ Exits winners early, holds losers</li>
-                                <li>❌ Skips journaling — "I'll remember it"</li>
-                                <li>❌ Changes strategy weekly</li>
+                                <li>❌ Moves stops further to "avoid being wrong"</li>
+                                <li>❌ Revenge trades after a loss</li>
+                                <li>❌ Skips journaling and data collection</li>
                             </ul>
                         </div>
-                        <div class="example-box" style="border-color:var(--vip-gold)">
-                            <div class="example-header"><span style="color:var(--vip-gold)">OPERATOR MINDSET</span><span
-                                    class="badge-institutional">WINS</span></div>
-                            <ul style="font-size:12px;color:#ccc;list-style:none;line-height:2">
-                                <li>✅ Only trades when ALL conditions align</li>
-                                <li>✅ Never moves a stop against the trade</li>
-                                <li>✅ Reduces size after consecutive losses</li>
-                                <li>✅ Holds winners to full target, cuts losers fast</li>
-                                <li>✅ Journals every trade with screenshots</li>
-                                <li>✅ Masters ONE strategy for 6+ months</li>
+                        <div class="example-box">
+                            <h4 style="color: #00ff88;">Operator Mindset</h4>
+                            <ul style="font-size: 12px; color: #ccc; list-style: none; padding: 0; line-height: 1.8;">
+                                <li>✅ Only trades high-confluence setups</li>
+                                <li>✅ Accepts a loss as a business expense</li>
+                                <li>✅ Follows a strict, repeatable process</li>
+                                <li>✅ Journals every trade for data analysis</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="content-section">
-                    <h3><i class='bx bx-lock-open'></i> 1.4 — Price Engineering: The Deepest Secret</h3>
-                    <p>Institutions do not find liquidity — they <strong style="color:var(--vip-gold)">create</strong>
-                        it. This is the single most important concept in this entire programme. Once you internalise
-                        this, you will never look at a chart the same way again.</p>
-                    <div class="key-takeaways">
-                        <h4>🔑 How Institutions Engineer Liquidity Traps</h4>
-                        <ul>
-                            <li><strong>Equal Highs = Buy-side liquidity pool.</strong> Retail traders place stops just
-                                above obvious highs. Institutions engineer a push above those highs to collect that
-                                liquidity (their buy orders get filled as retail buy-stops trigger), then reverse hard.
-                            </li>
-                            <li><strong>Trendline traders = free money for institutions.</strong> Everyone can see the
-                                obvious trendline. Institutions will break it, collect the stops, then return to the
-                                trend — leaving trendline traders ruined.</li>
-                            <li><strong>News traps:</strong> A bullish NFP report causes a spike up. Retail rushes to
-                                buy. Institutions who were already long SELL their positions into that retail buying
-                                frenzy. Price then collapses.</li>
-                            <li><strong>The Monday False Open:</strong> Price frequently opens Monday with a gap or
-                                sharp move in one direction — just to sweep weekend liquidity — before reversing into
-                                the true weekly direction.</li>
-                        </ul>
-                    </div>
-                    <div class="example-box"
-                        style="background:#0a0a0a;border:1px solid var(--vip-gold);margin-top:20px">
-                        <p style="color:var(--vip-gold);font-weight:700;margin-bottom:10px">💡 INSIDER FRAMEWORK: AMD
-                            Model (Accumulate → Manipulate → Distribute)</p>
-                        <p style="font-size:13px;color:#ccc">Every significant market move follows this 3-phase pattern.
-                            When you see a ranging market — institutions are accumulating. When price makes a sudden
-                            violent move against the trend — that is the manipulation phase. The true move follows. Your
-                            job is to identify the manipulation phase and enter AFTER it, in the direction of the
-                            distribution.</p>
+                    <h3><i class='bx bx-lock-open'></i> 1.4 — Price Engineering & AMD</h3>
+                    <p>Every major institutional move follows a specific cycle: Accumulation, Manipulation, and
+                        Distribution. This is the **AMD Model**.</p>
 
-                        <div class="illustration-container">
-                            <img src="amd_model_illustration_1777402694260.png" alt="AMD Model">
-                            <p style="font-size: 11px; color: #555; margin-top: 10px;">The AMD Cycle: Accumulation (A),
-                                Manipulation (M), and Distribution (D).</p>
+                    <div class="illustration-container">
+                        <div
+                            style="background: #000; border: 1px solid #333; border-radius: 8px; padding: 20px; position: relative; width: 100%; max-width: 100%; box-sizing: border-box;">
+                            <svg width="100%" height="auto" viewBox="0 0 500 200" style="display: block;">
+                                <!-- Accumulation Range -->
+                                <rect x="50" y="80" width="120" height="40" fill="rgba(255,255,255,0.05)" stroke="#444"
+                                    stroke-dasharray="4" />
+                                <text x="110" y="105" fill="#bbb" font-size="10"
+                                    text-anchor="middle">ACCUMULATION</text>
+
+                                <!-- Manipulation Move -->
+                                <path d="M 170 100 L 220 160 L 250 140" fill="none" stroke="#ff3333" stroke-width="2" />
+                                <circle cx="220" cy="160" r="15" fill="none" stroke="#ff3333" stroke-width="1"
+                                    stroke-dasharray="2" />
+                                <text x="220" y="185" fill="#ff3333" font-size="10" font-weight="700"
+                                    text-anchor="middle">MANIPULATION (TRAP)</text>
+
+                                <!-- Distribution Move -->
+                                <path d="M 250 140 L 450 40" fill="none" stroke="#00ff88" stroke-width="3" />
+                                <text x="350" y="80" fill="#00ff88" font-size="12" font-weight="700"
+                                    text-anchor="middle">DISTRIBUTION</text>
+
+                                <!-- Price Line connecting -->
+                                <path d="M 20 100 L 170 100" fill="none" stroke="#555" stroke-width="1.5" />
+                            </svg>
                         </div>
+                        <p style="font-size: 11px; color: #555; margin-top: 10px;">The AMD Cycle: Identify the
+                            manipulation phase to trade with the institutional distribution.</p>
+                    </div>
+
+                    <div class="key-takeaways" style="margin-top: 20px;">
+                        <h4>🔑 The 3 Phases</h4>
+                        <ul>
+                            <li><strong>Accumulation:</strong> Institutions building positions in a tight range.</li>
+                            <li><strong>Manipulation:</strong> A false breakout to trigger stops and create liquidity.
+                            </li>
+                            <li><strong>Distribution:</strong> The true move towards the target objective.</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="content-section">
-                    <h3><i class='bx bx-link'></i> 1.5 — Wyckoff + SMC: The Complete Framework</h3>
-                    <p>Wyckoff Method (1930s) and Smart Money Concepts (modern evolution) are two sides of the same
-                        coin. Wyckoff explains the <em>why</em> (intent). SMC explains the <em>how</em> (execution
-                        mechanics on the chart).</p>
-                    <div class="grid-2">
-                        <div class="example-box">
-                            <p style="color:var(--vip-gold);font-weight:700;margin-bottom:8px">WYCKOFF (The Why)</p>
-                            <ul style="font-size:12px;color:#ccc;list-style:none;line-height:1.9">
-                                <li>→ Accumulation &amp; Distribution phases</li>
-                                <li>→ Cause &amp; Effect (range = stored energy)</li>
-                                <li>→ Springs &amp; Upthrusts (the traps)</li>
-                                <li>→ Volume analysis to confirm intent</li>
-                                <li>→ Composite Man = the institution</li>
-                            </ul>
-                        </div>
-                        <div class="example-box">
-                            <p style="color:var(--vip-gold);font-weight:700;margin-bottom:8px">SMC (The How)</p>
-                            <ul style="font-size:12px;color:#ccc;list-style:none;line-height:1.9">
-                                <li>→ Market Structure (BOS / CHoCH)</li>
-                                <li>→ Liquidity pools (BSL / SSL)</li>
-                                <li>→ Order Blocks (institutional candles)</li>
-                                <li>→ Fair Value Gaps (imbalances)</li>
-                                <li>→ Premium/Discount zones</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="key-takeaways" style="margin-top:20px">
-                        <h4>🔑 Module 1 Mastery Checklist</h4>
-                        <ul>
-                            <li>I understand WHY 90% of retail traders lose and can identify the traps they fall into.
-                            </li>
-                            <li>I understand that price is engineered by algorithms to collect liquidity — it does not
-                                move randomly.</li>
-                            <li>I can explain the AMD (Accumulate, Manipulate, Distribute) model from memory.</li>
-                            <li>I understand my position in the market hierarchy and trade accordingly.</li>
-                            <li>I have committed to the Institutional Mindset: patience, precision, process over profit.
-                            </li>
-                        </ul>
+                    <h3><i class='bx bx-brain'></i> 1.5 — The 90% Loss Rate Root Cause</h3>
+                    <p>Retail traders lose because the education system (indicators, patterns) is designed to create
+                        liquidity for institutions. To succeed, you must trade the footprints, not the patterns.</p>
+
+                    <div class="example-box" style="border-left: 4px solid var(--vip-gold);">
+                        <p style="font-size: 14px; text-align: center; color: var(--vip-gold);">"If you are looking at
+                            what every other retail trader is looking at, you will likely get the same result as them."
+                        </p>
                     </div>
                 </div>
 
@@ -1260,7 +1212,8 @@
                             the swing high. <br>
                             - <span style="color: #ff3333; font-weight: 700;">Above 50% = Premium (Sell Zone)</span>
                             <br>
-                            - <span style="color: #00ff88; font-weight: 700;">Below 50% = Discount (Buy Zone)</span></p>
+                            - <span style="color: #00ff88; font-weight: 700;">Below 50% = Discount (Buy Zone)</span>
+                        </p>
                     </div>
 
                     <div class="illustration-container">
@@ -2103,7 +2056,8 @@
                 <div class="content-section">
                     <h3><i class='bx bx-brain'></i> 8.4 — Weekly &amp; Monthly Performance Reviews</h3>
                     <p>Data without review is useless. Your edge is not in the collecting — it's in the
-                        <em>analysis</em>. Block a minimum of 2 hours every weekend to conduct a structured review.</p>
+                        <em>analysis</em>. Block a minimum of 2 hours every weekend to conduct a structured review.
+                    </p>
                     <div class="example-box" style="background: #000; border: 1px solid #333; margin-top: 20px;">
                         <p style="color: var(--vip-gold); font-weight: 700; margin-bottom: 10px;">The Weekly Review
                             Protocol</p>
